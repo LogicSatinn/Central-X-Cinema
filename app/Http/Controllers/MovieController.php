@@ -11,11 +11,13 @@ class MovieController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        return view('movies.index', [
+            'movies' => Movie::all()
+        ]);
     }
 
     /**
@@ -32,13 +34,13 @@ class MovieController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \App\Http\Requests\StoreMovieRequest  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
     public function store(StoreMovieRequest $request)
     {
         Movie::create($request->all());
 
-        dd('done');
+        return redirect(route('movies.index'));
     }
 
     /**
