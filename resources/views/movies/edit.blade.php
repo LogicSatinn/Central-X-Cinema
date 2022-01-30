@@ -25,10 +25,12 @@
 
                     <div class="card shadow mt-4 mb-4">
                         <div class="card-header">
-                            <strong class="card-title">Add Movie Details</strong>
+                            <strong class="card-title">Edit Movie Details</strong>
                         </div>
-                        <form method="post" action="{{route('movies.store')}}">
+                       {!! Form::model($movie, ['route' => ['movies.update', $movie->id], 'method' => 'post']) !!}
+{{--                        <form method="post" action="{{route('movies.update', $movie->id)}}">--}}
                             @csrf
+                            @method('put')
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-6">
@@ -41,7 +43,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group mb-3">
                                             {!! Form::label('release_date', 'Release Date') !!}
-                                            {!! Form::date('release_date', \Carbon\Carbon::now(), ['class' => 'form-control']) !!}
+                                            {!! Form::date('release_date', null, ['class' => 'form-control']) !!}
                                         </div>
                                     </div>
                                 </div>
