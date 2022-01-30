@@ -33,33 +33,23 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group mb-3">
-                                            <label>Name</label>
-                                            <input type="text" name="name" class="form-control">
-                                        </div>
-                                        <div class="form-group mb-3">
-                                            <label>Genre</label>
-                                            <select class="form-control" name="genre">
-                                                <option value="action">Action</option>
-                                                <option value="adventure">Adventure</option>
-                                                <option value="family">Family</option>
-                                                <option value="drama">Drama</option>
-                                                <option value="kids">Kids</option>
-                                            </select>
+                                            {!! Form::label('name', 'Name') !!}
+                                            {!! Form::text('name', null, ['class' => 'form-control']) !!}
                                         </div>
 
                                     </div> <!-- /.col -->
                                     <div class="col-md-6">
                                         <div class="form-group mb-3">
-                                            <label>Release Date</label>
-                                            <input class="form-control" type="date" name="release_date">
+                                            {!! Form::label('release_date', 'Release Date') !!}
+                                            {!! Form::date('release_date', \Carbon\Carbon::now(), ['class' => 'form-control']) !!}
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="col-12">
-                                <label>Movie Description</label>
-                                <textarea name="description" class="form-control" rows="3"></textarea>
+                                {!! Form::label('description', 'Description') !!}
+                                {!! Form::textarea('description', null, ['class' => 'form-control', 'row' => 3]) !!}
                             </div>
 
                             <div class="col-12">

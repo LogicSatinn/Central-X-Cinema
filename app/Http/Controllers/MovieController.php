@@ -70,21 +70,25 @@ class MovieController extends Controller
      *
      * @param  \App\Http\Requests\UpdateMovieRequest  $request
      * @param  \App\Models\Movie  $movie
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
     public function update(UpdateMovieRequest $request, Movie $movie)
     {
-        //
+        $movie->update($request->except(['_method', '_token']));
+
+        return redirect(route('movies.index'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Movie  $movie
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
     public function destroy(Movie $movie)
     {
-        //
+        $movie->delete();
+
+        return redirect(route('movies.index'));
     }
 }

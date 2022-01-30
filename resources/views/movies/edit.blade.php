@@ -27,40 +27,31 @@
                         <div class="card-header">
                             <strong class="card-title">Edit Movie Details</strong>
                         </div>
-                        <form method="post" action="{{route('movies.update', $movie->id)}}">
+                       {!! Form::model($movie, ['route' => ['movies.update', $movie->id], 'method' => 'post']) !!}
+{{--                        <form method="post" action="{{route('movies.update', $movie->id)}}">--}}
                             @csrf
                             @method('put')
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group mb-3">
-                                            <label>Name</label>
-                                            <input type="text" name="name" class="form-control" value="{{old('name')}}">
-                                        </div>
-                                        <div class="form-group mb-3">
-                                            <label>Genre</label>
-                                            <select class="form-control" name="genre" value="{{old('genre')}}">
-                                                <option value="action">Action</option>
-                                                <option value="adventure">Adventure</option>
-                                                <option value="family">Family</option>
-                                                <option value="drama">Drama</option>
-                                                <option value="kids">Kids</option>
-                                            </select>
+                                            {!! Form::label('name', 'Name') !!}
+                                            {!! Form::text('name', null, ['class' => 'form-control']) !!}
                                         </div>
 
                                     </div> <!-- /.col -->
                                     <div class="col-md-6">
                                         <div class="form-group mb-3">
-                                            <label>Release Date</label>
-                                            <input class="form-control" type="date" name="release_date" value="{{old('release_date')}}">
+                                            {!! Form::label('release_date', 'Release Date') !!}
+                                            {!! Form::date('release_date', null, ['class' => 'form-control']) !!}
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="col-12">
-                                <label>Movie Description</label>
-                                <textarea name="description" value="{{old('description')}}" class="form-control" rows="3"></textarea>
+                                {!! Form::label('description', 'Description') !!}
+                                {!! Form::textarea('description', null, ['class' => 'form-control', 'row' => 3]) !!}
                             </div>
 
                             <div class="col-12">
