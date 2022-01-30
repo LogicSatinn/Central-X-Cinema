@@ -43,11 +43,15 @@
                                                         aria-expanded="false">
                                                     <span class="text-muted sr-only">Action</span>
                                                 </button>
+                                                <form method="post" action="{{route('movies.destroy', $movie->id)}}">
+                                                    @csrf
+                                                    @method('delete')
                                                 <div class="dropdown-menu dropdown-menu-right">
-                                                    <a class="dropdown-item" href="#">Edit</a>
-                                                    <a class="dropdown-item" href="#">Remove</a>
-                                                    <a class="dropdown-item" href="#">Assign</a>
+                                                    <a class="dropdown-item" href="{{route('movies.edit', $movie->id)}}">Edit</a>
+                                                    <a class="dropdown-item" href="{{route('movies.show', $movie->id)}}">View</a>
+                                                    <button class="dropdown-item" type="submit">Remove</button>
                                                 </div>
+                                                </form>
                                             </td>
                                         </tr>
                                         @endforeach

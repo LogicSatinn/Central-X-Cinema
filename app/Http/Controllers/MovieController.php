@@ -47,22 +47,22 @@ class MovieController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\Movie  $movie
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function show(Movie $movie)
     {
-        //
+        return view('movies.show', compact('movie'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Movie  $movie
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function edit(Movie $movie)
     {
-        //
+        return view('movies.edit', compact('movie'));
     }
 
     /**
