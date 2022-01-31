@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Genre;
 use App\Models\Movie;
 use App\Http\Requests\StoreMovieRequest;
 use App\Http\Requests\UpdateMovieRequest;
@@ -52,7 +53,8 @@ class MovieController extends Controller
      */
     public function show(Movie $movie)
     {
-        return view('movies.show', compact('movie'));
+        $genre = Genre::pluck('name', 'id');
+        return view('movies.show', compact('movie', 'genre'));
     }
 
     public function addPicture(Request $request, $id)
@@ -61,7 +63,20 @@ class MovieController extends Controller
 
         $movie->addMediaFromRequest('image')->toMediaCollection('pictures');
 
-        return redirect(route('movies.show', $movie));
+        $genre = Genre::pluck('name', 'id');
+
+        return redirect(route('movies.show', $movie, compact('genre')));
+    }
+
+    public function linkGenre(Request $request, $id)
+    {
+        $movie = Movie::find($id);
+
+        $movie->genre()->attach($request['movie_id']);
+
+        $genre = Genre::pluck('name', 'id');
+
+        return redirect(route('movies.show', $request['movie_id'], compact('genre')));
     }
 
     /**
