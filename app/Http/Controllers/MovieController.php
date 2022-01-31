@@ -38,7 +38,7 @@ class MovieController extends Controller
      */
     public function store(StoreMovieRequest $request)
     {
-        Movie::create($request->all());
+        Movie::create($request->validated());
 
         return redirect(route('movies.index'));
     }

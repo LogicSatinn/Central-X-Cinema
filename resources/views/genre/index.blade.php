@@ -1,7 +1,7 @@
 @extends('layouts.backend')
 
 @section('title')
-    Movies
+    Genre
 @endsection
 
 @section('content')
@@ -10,9 +10,9 @@
         <div class="container-fluid">
             <div class="row justify-content-center">
                 <div class="col-12">
-                        <h2 class="mb-2 page-title">Movies</h2>
+                    <h2 class="mb-2 page-title">Genre</h2>
                     <div class="col-12 text-right">
-                        <a href="{{route('movies.create')}}" class="btn btn-primary ">
+                        <a href="{{route('genre.create')}}" class="btn btn-primary ">
                             Create
                         </a>
                     </div>
@@ -21,7 +21,7 @@
                         <div class="col-md-12">
                             <div class="card shadow">
                                 <div class="card-body">
-                                    @include('movies.table')
+                                    @include('genre.table')
                                 </div>
                             </div>
                         </div> <!-- simple table -->

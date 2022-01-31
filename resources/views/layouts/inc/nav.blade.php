@@ -25,7 +25,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{('/movies')}}">
                         <span class="ml-lg-2">Movies</span>
-                        <span class="badge badge-pill badge-primary">New</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{('/genre')}}">
+                        <span class="ml-lg-2">Genre</span>
                     </a>
                 </li>
             </ul>

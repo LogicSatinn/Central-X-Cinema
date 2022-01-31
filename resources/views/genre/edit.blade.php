@@ -1,5 +1,9 @@
 @extends('layouts.backend')
 
+@section('title')
+    Edit Genre
+@endsection
+
 @section('content')
 
     <main role="main" class="main-content">
@@ -7,9 +11,6 @@
             <div class="row justify-content-center">
                 <div class="col-12">
                     <div class="row align-items-center mb-2">
-                        <div class="col">
-                            <h2 class="h5 page-title">Hello, {{auth()->user()->name}}!</h2>
-                        </div>
                         <div class="col-auto">
                             <form class="form-inline">
                                 <div class="form-group d-none d-lg-inline">
@@ -22,26 +23,24 @@
                         </div>
                     </div>
 
-
                     <div class="card shadow mt-4 mb-4">
                         <div class="card-header">
-                            <strong class="card-title">Edit Movie Details</strong>
+                            <strong class="card-title">Edit Genre Details</strong>
                         </div>
-                        {!! Form::model($movie, ['route' => ['movies.update', $movie->id], 'method' => 'post']) !!}
+                        {!! Form::model($genre, ['route' => ['genre.update', $genre->id], 'method' => 'post']) !!}
                         @csrf
                         @method('put')
 
-                        @include('movies.fields')
+                            @include('genre.fields')
 
-                        <div class="col-12">
-                            <button type="submit" class="flex justify-center align-center btn mt-2 mb-2 btn-primary"
-                                    style="margin-left: 39rem;"><span
-                                    class="fe fe-arrow-right fe-16 mr-2"></span>Save
-                            </button>
-                        </div>
+                            <div class="col-12">
+                                <button type="submit" class="flex justify-center align-center btn mt-2 mb-2 btn-primary"
+                                        style="margin-left: 39rem;"><span
+                                        class="fe fe-arrow-right fe-16 mr-2"></span>Save
+                                </button>
+                            </div>
                         </form>
                     </div> <!-- / .card -->
-
 
                 </div> <!-- .col-12 -->
             </div> <!-- .row -->
