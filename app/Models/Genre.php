@@ -14,4 +14,9 @@ class Genre extends Model
     ];
 
     protected $dates = ['created_at'];
+
+    public function movie()
+    {
+        return $this->belongsToMany(Movie::class);
+    }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Movie;
 use App\Http\Requests\StoreMovieRequest;
 use App\Http\Requests\UpdateMovieRequest;
+use Illuminate\Http\Request;
 
 class MovieController extends Controller
 {
@@ -52,6 +53,15 @@ class MovieController extends Controller
     public function show(Movie $movie)
     {
         return view('movies.show', compact('movie'));
+    }
+
+    public function addPicture(Request $request, $id)
+    {
+        $movie = Movie::find($id);
+
+        $movie->addMediaFromRequest('image')->toMediaCollection('pictures');
+
+        return redirect(route('movies.show', $movie));
     }
 
     /**
