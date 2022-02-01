@@ -1,63 +1,101 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-white flex-row border-bottom shadow">
-    <div class="container-fluid">
-        <a class="navbar-brand mx-lg-1 mr-0" href="#">
-            <svg version="1.1" id="logo" class="navbar-brand-img brand-sm" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 120 120" xml:space="preserve">
-              <g>
-                  <polygon class="st0" points="78,105 15,105 24,87 87,87 	" />
-                  <polygon class="st0" points="96,69 33,69 42,51 105,51 	" />
-                  <polygon class="st0" points="78,33 15,33 24,15 87,15 	" />
-              </g>
-            </svg>
+<nav id="sidebar" aria-label="Main Navigation">
+    <!-- Side Header -->
+    <div class="content-header bg-primary">
+        <!-- Logo -->
+        <a class="text-dual d-inline-block font-w600" href="{{url('/')}}">
+            <i class="fa fa-globe-americas mr-1"></i> Dash<span class="font-w700">mix</span>
         </a>
-        <button class="navbar-toggler mt-2 mr-auto toggle-sidebar text-muted">
-            <i class="fe fe-menu navbar-toggler-icon"></i>
-        </button>
-        <div class="navbar-slide bg-white ml-lg-4" id="navbarSupportedContent">
-            <a href="#" class="btn toggle-sidebar d-lg-none text-muted ml-2 mt-3" data-toggle="toggle">
-                <i class="fe fe-x"><span class="sr-only"></span></i>
+        <!-- END Logo -->
+
+        <!-- Options -->
+        <div>
+            <!-- Close Sidebar, Visible only on mobile screens -->
+            <a class="d-lg-none text-white ml-2" data-toggle="layout" data-action="sidebar_close" href="javascript:void(0)">
+                <i class="fa fa-times-circle"></i>
             </a>
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{('/')}}">
-                        <span class="ml-lg-2">DashBoard</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{('/movies')}}">
-                        <span class="ml-lg-2">Movies</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{('/genre')}}">
-                        <span class="ml-lg-2">Genre</span>
-                    </a>
-                </li>
-            </ul>
+            <!-- END Close Sidebar -->
         </div>
-        <ul class="navbar-nav d-flex flex-row">
-            <li class="nav-item">
-                <a class="nav-link text-muted my-2" href="./#" id="modeSwitcher" data-mode="light">
-                    <i class="fe fe-sun fe-16"></i>
+        <!-- END Options -->
+    </div>
+    <!-- END Side Header -->
+
+    <!-- User Info -->
+    <div class="smini-hidden">
+        <div class="content-side content-side-full bg-black-10 d-flex align-items-center">
+            <a class="img-link d-inline-block" href="javascript:void(0)">
+                <img class="img-avatar img-avatar48 img-avatar-thumb" src="{{asset('assets/media/avatars/avatar13.jpg')}}" alt="">
+            </a>
+            <div class="ml-3">
+                <a class="font-w600 text-dual" href="javascript:void(0)">John Doe</a>
+                <div class="font-size-sm font-italic text-dual">Web Developer</div>
+            </div>
+        </div>
+    </div>
+    <!-- END User Info -->
+
+    <!-- Side Navigation -->
+    <div class="content-side content-side-full">
+        <ul class="nav-main">
+            <li class="nav-main-item">
+                <a class="nav-main-link active" href="#">
+                    <i class="nav-main-link-icon far fa-compass"></i>
+                    <span class="nav-main-link-name">Dashboard</span>
                 </a>
             </li>
-            <li class="nav-item dropdown ml-lg-0">
-                <a class="nav-link dropdown-toggle text-muted" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="avatar avatar-sm mt-2">
-                  <img src="{{asset('assets/avatars/avatar.jpg')}}" alt="..." class="avatar-img rounded-circle">
-                </span>
+            <li class="nav-main-item">
+                <a class="nav-main-link" href="{{route('movies.index')}}">
+                    <i class="nav-main-link-icon far fa-user-circle"></i>
+                    <span class="nav-main-link-name">Movies</span>
                 </a>
-                <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                    <li class="nav-item">
-                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
-                            <i class="far fa-fw fa-arrow-alt-circle-left mr-1"></i> Sign Out
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
-                            </form>
-                        </a>
-                    </li>
-                </ul>
             </li>
+            <li class="nav-main-item">
+                <a class="nav-main-link" href="{{route('genre.index')}}">
+                    <i class="nav-main-link-icon far fa-envelope-open"></i>
+                    <span class="nav-main-link-name">Genre</span>
+                    <span class="nav-main-link-badge badge badge-pill badge-primary">2</span>
+                </a>
+            </li>
+{{--            <li class="nav-main-heading">More</li>--}}
+{{--            <li class="nav-main-item">--}}
+{{--                <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">--}}
+{{--                    <i class="nav-main-link-icon fa fa-briefcase"></i>--}}
+{{--                    <span class="nav-main-link-name">Projects</span>--}}
+{{--                </a>--}}
+{{--                <ul class="nav-main-submenu">--}}
+{{--                    <li class="nav-main-item">--}}
+{{--                        <a class="nav-main-link" href="">--}}
+{{--                            <i class="nav-main-link-icon fa fa-check"></i>--}}
+{{--                            <span class="nav-main-link-name">Active</span>--}}
+{{--                            <span class="nav-main-link-badge badge badge-pill badge-success">3</span>--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
+{{--                    <li class="nav-main-item">--}}
+{{--                        <a class="nav-main-link" href="">--}}
+{{--                            <i class="nav-main-link-icon fa fa-users"></i>--}}
+{{--                            <span class="nav-main-link-name">Colleagues</span>--}}
+{{--                            <span class="nav-main-link-badge badge badge-pill badge-primary">24</span>--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
+{{--                    <li class="nav-main-item">--}}
+{{--                        <a class="nav-main-link" href="">--}}
+{{--                            <i class="nav-main-link-icon fa fa-cog"></i>--}}
+{{--                            <span class="nav-main-link-name">Manage</span>--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
+{{--                </ul>--}}
+{{--            </li>--}}
         </ul>
     </div>
+    <!-- END Side Navigation -->
 </nav>
+<!-- END Sidebar -->
+
+{{--<li class="nav-item">--}}
+{{--    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();--}}
+{{--                                             document.getElementById('logout-form').submit();">--}}
+{{--        <i class="far fa-fw fa-arrow-alt-circle-left mr-1"></i> Sign Out--}}
+{{--        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">--}}
+{{--            @csrf--}}
+{{--        </form>--}}
+{{--    </a>--}}
+{{--</li>--}}
