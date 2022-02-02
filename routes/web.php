@@ -8,7 +8,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('movies', 'MovieController');
     Route::resource('genre', 'GenreController');
 
-    Route::get('/', function () {
+    Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
 });
