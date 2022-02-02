@@ -4,32 +4,34 @@
     Genre
 @endsection
 
+@section('page')
+    Genre
+@endsection
+
+@section('action')
+    Add Genre
+@endsection
+
+@section('route')
+    {{route('genre.create')}}
+@endsection
+
+
 @section('content')
 
-    <main role="main" class="main-content">
-        <div class="container-fluid">
-            <div class="row justify-content-center">
-                <div class="col-12">
-                    <h2 class="mb-2 page-title">Genre</h2>
-                    <div class="col-12 text-right">
-                        <a href="{{route('genre.create')}}" class="btn btn-primary ">
-                            Create
-                        </a>
-                    </div>
-                    <div class="row my-4">
-                        <!-- Small table -->
-                        <div class="col-md-12">
-                            <div class="card shadow">
-                                <div class="card-body">
-                                    @include('genre.table')
-                                </div>
-                            </div>
-                        </div> <!-- simple table -->
-                    </div> <!-- end section -->
-                </div> <!-- .col-12 -->
-            </div> <!-- .row -->
-        </div> <!-- .container-fluid -->
-    </main>
+
+    <div class="content">
+        <!-- Dynamic Table Full -->
+        <div class="block block-rounded block-bordered">
+            <div class="block-header block-header-default">
+                <h3 class="block-title">Genre</h3>
+            </div>
+            <div class="block-content block-content-full">
+                @include('genre.table')
+            </div>
+        </div>
+        <!-- END Dynamic Table Full -->
+    </div>
 
 
 @endsection

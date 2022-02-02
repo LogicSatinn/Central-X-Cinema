@@ -1,41 +1,34 @@
-<!-- table -->
-<table class="table datatables" id="dataTable-1">
+<table class="table table-bordered table-striped table-vcenter js-dataTable-full">
     <thead>
     <tr>
-        <th></th>
-        <th>No:</th>
-        <th>Name</th>
-        <th>Release Date</th>
-        <th>Movie Runtime</th>
-        <th>Action</th>
+        <th class="text-center" style="width: 50px;">#</th>
+        <th style="width: 60px;">Name</th>
+        <th class="d-none d-sm-table-cell" style="width: 20%;">Release Date</th>
+        <th class="d-none d-sm-table-cell" style="width: 20%;">Movie Runtime</th>
+        <th style="width: 15%;">Action</th>
     </tr>
     </thead>
     <tbody>
     @foreach($movies as $movie)
         <tr>
-            <td>
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input">
-                    <label class="custom-control-label"></label>
-                </div>
+            <td class="text-center">{{$movie->id}}</td>
+            <td class="font-w600">
+                <a href="{{route('movies.show', $movie->id)}}">{{$movie->name}}</a>
             </td>
-            <td>{{$movie->id}}</td>
-            <td>{{$movie->name}}</td>
-            <td>{{($movie->release_date)->format('d M, Y')}}</td>
-            <td> {{$movie->runtime}}</td>
+            <td class="d-none d-sm-table-cell">
+                {{($movie->release_date)->format('d M, Y')}}
+            </td>
+            <td class="d-none d-sm-table-cell">
+                {{$movie->runtime}}
+            </td>
             <td>
-                <button class="btn btn-sm dropdown-toggle more-horizontal" type="button"
-                        data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">
-                    <span class="text-muted sr-only">Action</span>
-                </button>
                 <form method="post" action="{{route('movies.destroy', $movie->id)}}">
                     @csrf
                     @method('delete')
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="{{route('movies.edit', $movie->id)}}">Edit</a>
-                        <a class="dropdown-item" href="{{route('movies.show', $movie->id)}}">View</a>
-                        <button class="dropdown-item" type="submit">Remove</button>
+                    <div>
+                        <a class="btn btn-sm btn-success" href="{{route('movies.edit', $movie->id)}}"><i class="fa fa-pen"></i></a>
+                        <a class="btn btn-sm btn-light" href="{{route('movies.show', $movie->id)}}"><i class="fa fa-eye"></i></a>
+                        <button class="btn btn-sm btn-danger" type="submit"><i class="fa fa-trash"></i></button>
                     </div>
                 </form>
             </td>

@@ -6,14 +6,14 @@
         <div class="d-flex align-items-center">
             <!-- Logo -->
             <a class="text-dual link-fx" href="{{url('/')}}">
-                <i class="fa fa-globe-americas mr-1"></i> Dash<span class="font-w700">mix</span>
+                <i class="fa fa-globe-americas mr-1"></i> XYZ <span class="font-w700">Cinema</span>
             </a>
             <!-- END Logo -->
 
             <!-- Menu -->
             <ul class="nav-main nav-main-horizontal nav-main-hover d-none d-lg-block ml-4">
                 <li class="nav-main-item">
-                    <a class="nav-main-link active" href="{{url('/')}}">
+                    <a class="nav-main-link" href="{{url('/')}}">
                         <i class="nav-main-link-icon far fa-compass"></i>
                         <span class="nav-main-link-name">Dashboard</span>
                     </a>
@@ -28,7 +28,7 @@
                     <a class="nav-main-link" href="{{route('genre.index')}}">
                         <i class="nav-main-link-icon far fa-envelope-open"></i>
                         <span class="nav-main-link-name">Genre</span>
-                        <span class="nav-main-link-badge badge badge-pill badge-primary">2</span>
+{{--                        <span class="nav-main-link-badge badge badge-pill badge-primary">2</span>--}}
                     </a>
                 </li>
 {{--                <li class="nav-main-heading">More</li>--}}

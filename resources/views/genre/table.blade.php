@@ -1,38 +1,31 @@
 <!-- table -->
-<table class="table datatables" id="dataTable-1">
+<table class="table table-bordered table-striped table-vcenter js-dataTable-full">
     <thead>
     <tr>
-        <th></th>
-        <th>#</th>
-        <th>Name</th>
-        <th>Added On</th>
-        <th>Action</th>
+        <th class="text-center" style="width: 50px;">#</th>
+        <th style="width: 30px;">Name</th>
+        <th style="width: 30%;">Added On</th>
+        <th style="width: 15%;">Action</th>
     </tr>
     </thead>
     <tbody>
     @foreach($genre as $genres)
         <tr>
-            <td>
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input">
-                    <label class="custom-control-label"></label>
-                </div>
+            <td class="text-center">{{$genres->id}}</td>
+            <td class="font-w600">
+                <a href="{{route('movies.show', $genres->id)}}">{{$genres->name}}</a>
             </td>
-            <td>{{$genres->id}}</td>
-            <td>{{$genres->name}}</td>
-            <td>{{($genres->created_at)->format('d M, Y')}}</td>
+            <td class="d-none d-sm-table-cell">
+                {{($genres->created_at)->format('d M, Y')}}
+            </td>
             <td>
-                <button class="btn btn-sm dropdown-toggle more-horizontal" type="button"
-                        data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">
-                    <span class="text-muted sr-only">Action</span>
-                </button>
                 <form method="post" action="{{route('genre.destroy', $genres->id)}}">
                     @csrf
                     @method('delete')
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="{{route('genre.edit', $genres->id)}}">Edit</a>
-                        <button class="dropdown-item" type="submit">Remove</button>
+                    <div>
+                        <a class="btn btn-sm btn-success" href="{{route('genre.edit', $genres->id)}}"><i class="fa fa-pen"></i></a>
+                        <a class="btn btn-sm btn-light" href="{{route('genre.show', $genres->id)}}"><i class="fa fa-eye"></i></a>
+                        <button class="btn btn-sm btn-danger" type="submit"><i class="fa fa-trash"></i></button>
                     </div>
                 </form>
             </td>

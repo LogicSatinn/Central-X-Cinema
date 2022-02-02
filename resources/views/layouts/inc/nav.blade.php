@@ -3,7 +3,7 @@
     <div class="content-header bg-primary">
         <!-- Logo -->
         <a class="text-dual d-inline-block font-w600" href="{{url('/')}}">
-            <i class="fa fa-globe-americas mr-1"></i> Dash<span class="font-w700">mix</span>
+            <i class="fa fa-globe-americas mr-1"></i> XYZ <span class="font-w700">Cinema</span>
         </a>
         <!-- END Logo -->
 
@@ -26,7 +26,7 @@
                 <img class="img-avatar img-avatar48 img-avatar-thumb" src="{{asset('assets/media/avatars/avatar13.jpg')}}" alt="">
             </a>
             <div class="ml-3">
-                <a class="font-w600 text-dual" href="javascript:void(0)">John Doe</a>
+                <a class="font-w600 text-dual" href="javascript:void(0)">{{auth()->user()->name}}</a>
                 <div class="font-size-sm font-italic text-dual">Web Developer</div>
             </div>
         </div>
@@ -37,7 +37,7 @@
     <div class="content-side content-side-full">
         <ul class="nav-main">
             <li class="nav-main-item">
-                <a class="nav-main-link active" href="#">
+                <a class="nav-main-link" href="#">
                     <i class="nav-main-link-icon far fa-compass"></i>
                     <span class="nav-main-link-name">Dashboard</span>
                 </a>
@@ -52,7 +52,7 @@
                 <a class="nav-main-link" href="{{route('genre.index')}}">
                     <i class="nav-main-link-icon far fa-envelope-open"></i>
                     <span class="nav-main-link-name">Genre</span>
-                    <span class="nav-main-link-badge badge badge-pill badge-primary">2</span>
+{{--                    <span class="nav-main-link-badge badge badge-pill badge-primary">2</span>--}}
                 </a>
             </li>
 {{--            <li class="nav-main-heading">More</li>--}}
