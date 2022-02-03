@@ -20,8 +20,20 @@
                 </li>
                 <li class="nav-main-item">
                     <a class="nav-main-link" href="{{route('movies.index')}}">
-                        <i class="nav-main-link-icon far fa-user-circle"></i>
+                        <i class="nav-main-link-icon fa fa-film"></i>
                         <span class="nav-main-link-name">Movie</span>
+                    </a>
+                </li>
+                <li class="nav-main-item">
+                    <a class="nav-main-link" href="{{route('theatre.index')}}">
+                        <i class="nav-main-link-icon fa fa-university"></i>
+                        <span class="nav-main-link-name">Theatre</span>
+                    </a>
+                </li>
+                <li class="nav-main-item">
+                    <a class="nav-main-link" href="{{route('hall.index')}}">
+                        <i class="nav-main-link-icon far fa-user-circle"></i>
+                        <span class="nav-main-link-name">Hall</span>
                     </a>
                 </li>
                 <li class="nav-main-item">
