@@ -10,7 +10,7 @@ class Theatre extends Model
     use HasFactory;
 
     public $fillable = [
-        'name', 'region', 'location'
+        'name', 'region_id', 'location'
     ];
 
     public function halls()
@@ -21,5 +21,10 @@ class Theatre extends Model
     public function schedule()
     {
         return $this->hasMany(Schedule::class);
+    }
+
+    public function region()
+    {
+        return $this->belongsTo(Region::class);
     }
 }

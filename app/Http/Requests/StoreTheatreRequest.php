@@ -25,7 +25,7 @@ class StoreTheatreRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'region' => 'required',
+            'region_id' => 'required',
             'location' => 'required'
         ];
     }

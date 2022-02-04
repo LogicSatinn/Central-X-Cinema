@@ -6,8 +6,8 @@
         </div>
 
         <div class="form-group mb-3">
-            {!! Form::label('region', 'Region') !!}
-            {!! Form::text('region', null,['class' => 'form-control']) !!}
+            {!! Form::label('region_id', 'Region') !!}
+            {!! Form::select('region_id', $region, null,['class' => 'form-control']) !!}
         </div>
 
     </div> <!-- /.col -->

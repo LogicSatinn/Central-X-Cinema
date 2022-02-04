@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Region;
 use App\Models\Theatre;
 use App\Http\Requests\StoreTheatreRequest;
 use App\Http\Requests\UpdateTheatreRequest;
@@ -23,18 +24,20 @@ class TheatreController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function create()
     {
-        return view('theatre.create');
+        return view('theatre.create', [
+            'region' => Region::pluck('name', 'id')
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \App\Http\Requests\StoreTheatreRequest  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
     public function store(StoreTheatreRequest $request)
     {
@@ -62,7 +65,9 @@ class TheatreController extends Controller
      */
     public function edit(Theatre $theatre)
     {
-        return view('theatre.edit', compact('theatre'));
+        return view('theatre.edit', compact('theatre'), [
+            'region' => Region::pluck('name', 'id')
+        ]);
     }
 
     /**

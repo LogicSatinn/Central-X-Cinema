@@ -25,7 +25,7 @@ class UpdateTheatreRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'region' => 'required',
+            'region_id' => 'required',
             'location' => 'required'
         ];
     }

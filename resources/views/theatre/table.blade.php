@@ -19,7 +19,7 @@
                 {{$theatre->location}}
             </td>
             <td class="d-none d-sm-table-cell">
-                {{$theatre->region}}
+                {{$theatre->region->name}}
             </td>
             <td>
                 <form method="post" action="{{route('theatre.destroy', $theatre->id)}}">

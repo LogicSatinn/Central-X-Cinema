@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTheatresTable extends Migration
+class CreateRegionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateTheatresTable extends Migration
      */
     public function up()
     {
-        Schema::create('theatres', function (Blueprint $table) {
+        Schema::create('regions', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignId('region_id')->constrained();
-            $table->string('location');
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ class CreateTheatresTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('theatres');
+        Schema::dropIfExists('regions');
     }
 }
