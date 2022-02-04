@@ -20,6 +20,6 @@ class Theatre extends Model
 
     public function schedule()
     {
-        return $this->hasOne(Schedule::class);
+        return $this->hasMany(Schedule::class);
     }
 }

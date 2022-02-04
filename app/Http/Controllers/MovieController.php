@@ -54,7 +54,8 @@ class MovieController extends Controller
     public function show(Movie $movie)
     {
         $genre = Genre::pluck('name', 'id');
-        return view('movies.show', compact('movie', 'genre'));
+        $movieSchedule = $movie->schedule()->get();
+        return view('movies.show', compact('movie', 'genre', 'movieSchedule'));
     }
 
     public function addPicture(Request $request, $id)

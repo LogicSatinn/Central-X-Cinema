@@ -13,7 +13,7 @@ class UpdateScheduleRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,12 @@ class UpdateScheduleRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'movie_id' => 'required',
+            'hall_id' => 'required',
+            'theatre_id' => 'required',
+            'showtime' => 'required',
+            'showdate' => 'required|date',
+            'price' => 'required|numeric'
         ];
     }
 }

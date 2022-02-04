@@ -11,7 +11,7 @@
     </tr>
     </thead>
     <tbody>
-    @foreach($hallmovie as $schedule)
+    @foreach($schedules as $schedule)
         <tr>
             <td class="text-centers">{{$schedule->id}}</td>
             <td class="font-w600">
