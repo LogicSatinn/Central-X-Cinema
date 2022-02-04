@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::view('/', 'welcome');
+Route::view('/', 'frontend.index');
+
 
 Route::middleware(['auth'])->group(function () {
     Route::post('/movies/{id}/linkGenre', 'MovieController@linkGenre')->name('linkGenre');

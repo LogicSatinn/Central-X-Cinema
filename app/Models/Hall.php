@@ -10,7 +10,7 @@ class Hall extends Model
     use HasFactory;
 
     public $fillable = [
-        'name', 'quality', 'no_of_seats', 'theatre_id'
+        'name', 'experience', 'no_of_seats', 'theatre_id'
     ];
 
     public function theatre()

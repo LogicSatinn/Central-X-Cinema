@@ -17,7 +17,7 @@
                 <a href="{{route('hall.show', $hall->id)}}">{{$hall->name}}</a>
             </td>
             <td class="d-none d-sm-table-cell">
-                {{$hall->quality}}
+                {{$hall->experience}}
             </td>
             <td class="d-none d-sm-table-cell">
                 {{$hall->theatre->name}}

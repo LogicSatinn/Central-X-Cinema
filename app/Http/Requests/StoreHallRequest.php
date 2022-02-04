@@ -25,7 +25,7 @@ class StoreHallRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'quality' => 'required',
+            'experience' => 'required',
             'no_of_seats' => 'required',
             'theatre_id' => 'required'
         ];

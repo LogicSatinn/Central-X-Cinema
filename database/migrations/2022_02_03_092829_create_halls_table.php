@@ -16,7 +16,7 @@ class CreateHallsTable extends Migration
         Schema::create('halls', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('quality');
+            $table->string('experience');
             $table->integer('no_of_seats');
             $table->foreignId('theatre_id')->constrained();
             $table->timestamps();
