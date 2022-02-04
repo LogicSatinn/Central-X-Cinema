@@ -28,6 +28,11 @@ class Movie extends Model implements HasMedia
         return $this->belongsToMany(Genre::class);
     }
 
+    public function schedule()
+    {
+        return $this->hasOne(Schedule::class);
+    }
+
     public function registerMediaCollections(): void
     {
         $this

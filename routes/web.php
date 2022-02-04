@@ -11,6 +11,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('genre', 'GenreController');
     Route::resource('theatre', 'TheatreController');
     Route::resource('hall', 'HallController');
+    Route::resource('schedule', 'ScheduleController');
 
     Route::get('/dashboard', function () {
         return view('dashboard');

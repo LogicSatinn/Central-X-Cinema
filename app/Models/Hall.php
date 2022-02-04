@@ -17,4 +17,9 @@ class Hall extends Model
     {
         return $this->belongsTo(Theatre::class);
     }
+
+    public function schedule()
+    {
+        return $this->hasOne(Schedule::class);
+    }
 }

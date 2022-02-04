@@ -37,6 +37,12 @@
                     </a>
                 </li>
                 <li class="nav-main-item">
+                    <a class="nav-main-link" href="{{route('schedule.index')}}">
+                        <i class="nav-main-link-icon far fa-user-circle"></i>
+                        <span class="nav-main-link-name">Schedule</span>
+                    </a>
+                </li>
+                <li class="nav-main-item">
                     <a class="nav-main-link" href="{{route('genre.index')}}">
                         <i class="nav-main-link-icon far fa-envelope-open"></i>
                         <span class="nav-main-link-name">Genre</span>

@@ -17,4 +17,9 @@ class Theatre extends Model
     {
         return $this->hasMany(Hall::class);
     }
+
+    public function schedule()
+    {
+        return $this->hasOne(Schedule::class);
+    }
 }
