@@ -13,7 +13,7 @@ class Movie extends Model implements HasMedia
     use HasFactory, InteractsWithMedia;
 
     public $fillable = [
-        'name', 'description', 'release_date', 'runtime'
+        'name', 'description', 'release_date', 'runtime', 'language'
     ];
 
     protected $dates = ['release_date'];

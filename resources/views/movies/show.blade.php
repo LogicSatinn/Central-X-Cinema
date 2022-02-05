@@ -12,6 +12,10 @@
     Add Movie
 @endsection
 
+@section('route')
+    {{ route('movies.create') }}
+@endsection
+
 
 @section('content')
 

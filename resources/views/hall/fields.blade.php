@@ -18,7 +18,7 @@
         </div>
         <div class="form-group mb-3">
             {!! Form::label('theatre_id', 'Theatre') !!}
-            {!! Form::select('theatre_id', $theatre, null, ['class' => 'form-control', 'row' => 3]) !!}
+            {!! Form::select('theatre_id', $theatre, null, ['class' => 'form-control']) !!}
         </div>
     </div>
 

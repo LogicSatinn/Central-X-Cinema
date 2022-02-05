@@ -15,19 +15,7 @@
                             <div class="tab-thumb">
                                 <img src="{{asset('frontend/images/ticket/ticket-tab01.png')}}" alt="ticket">
                             </div>
-                            <span>Movie</span>
-                        </li>
-                        <li>
-                            <div class="tab-thumb">
-                                <img src="frontend/images/ticket/ticket-tab02.png" alt="ticket">
-                            </div>
-                            <span>Animation</span>
-                        </li>
-                        <li>
-                            <div class="tab-thumb">
-                                <img src="frontend/images/ticket/ticket-tab03.png" alt="ticket">
-                            </div>
-                            <span>BlockBus</span>
+                            <span>Movies</span>
                         </li>
                     </ul>
                 </div>
@@ -44,15 +32,7 @@
                                 <img src="frontend/images/ticket/city.png" alt="ticket">
                             </div>
                             <span class="type">city</span>
-                            <select class="select-bar">
-                                <option value="london">London</option>
-                                <option value="dhaka">dhaka</option>
-                                <option value="rosario">rosario</option>
-                                <option value="madrid">madrid</option>
-                                <option value="koltaka">kolkata</option>
-                                <option value="rome">rome</option>
-                                <option value="khoksa">khoksa</option>
-                            </select>
+                            {!! Form::select('region_id', $region, null,['class' => 'select-bar']) !!}
                         </div>
                         <div class="form-group">
                             <div class="thumb">
@@ -70,116 +50,8 @@
                             <div class="thumb">
                                 <img src="frontend/images/ticket/cinema.png" alt="ticket">
                             </div>
-                            <span class="type">cinema</span>
-                            <select class="select-bar">
-                                <option value="Awaken">Awaken</option>
-                                <option value="dhaka">dhaka</option>
-                                <option value="rosario">rosario</option>
-                                <option value="madrid">madrid</option>
-                                <option value="koltaka">kolkata</option>
-                                <option value="rome">rome</option>
-                                <option value="khoksa">khoksa</option>
-                            </select>
-                        </div>
-                    </form>
-                </div>
-                <div class="tab-item">
-                    <form class="ticket-search-form">
-                        <div class="form-group large">
-                            <input type="text" placeholder="Search fo Events">
-                            <button type="submit"><i class="fas fa-search"></i></button>
-                        </div>
-                        <div class="form-group">
-                            <div class="thumb">
-                                <img src="frontend/images/ticket/city.png" alt="ticket">
-                            </div>
-                            <span class="type">city</span>
-                            <select class="select-bar">
-                                <option value="london">London</option>
-                                <option value="dhaka">dhaka</option>
-                                <option value="rosario">rosario</option>
-                                <option value="madrid">madrid</option>
-                                <option value="koltaka">kolkata</option>
-                                <option value="rome">rome</option>
-                                <option value="khoksa">khoksa</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <div class="thumb">
-                                <img src="frontend/images/ticket/date.png" alt="ticket">
-                            </div>
-                            <span class="type">date</span>
-                            <select class="select-bar">
-                                <option value="26-12-19">23/10/2019</option>
-                                <option value="26-12-19">24/10/2019</option>
-                                <option value="26-12-19">25/10/2019</option>
-                                <option value="26-12-19">26/10/2019</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <div class="thumb">
-                                <img src="frontend/images/ticket/cinema.png" alt="ticket">
-                            </div>
-                            <span class="type">event</span>
-                            <select class="select-bar">
-                                <option value="angular">angular</option>
-                                <option value="startup">startup</option>
-                                <option value="rosario">rosario</option>
-                                <option value="madrid">madrid</option>
-                                <option value="koltaka">kolkata</option>
-                                <option value="Last-First">Last-First</option>
-                                <option value="wish">wish</option>
-                            </select>
-                        </div>
-                    </form>
-                </div>
-                <div class="tab-item">
-                    <form class="ticket-search-form">
-                        <div class="form-group large">
-                            <input type="text" placeholder="Search fo Sports">
-                            <button type="submit"><i class="fas fa-search"></i></button>
-                        </div>
-                        <div class="form-group">
-                            <div class="thumb">
-                                <img src="frontend/images/ticket/city.png" alt="ticket">
-                            </div>
-                            <span class="type">city</span>
-                            <select class="select-bar">
-                                <option value="london">London</option>
-                                <option value="dhaka">dhaka</option>
-                                <option value="rosario">rosario</option>
-                                <option value="madrid">madrid</option>
-                                <option value="koltaka">kolkata</option>
-                                <option value="rome">rome</option>
-                                <option value="khoksa">khoksa</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <div class="thumb">
-                                <img src="frontend/images/ticket/date.png" alt="ticket">
-                            </div>
-                            <span class="type">date</span>
-                            <select class="select-bar">
-                                <option value="26-12-19">23/10/2019</option>
-                                <option value="26-12-19">24/10/2019</option>
-                                <option value="26-12-19">25/10/2019</option>
-                                <option value="26-12-19">26/10/2019</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <div class="thumb">
-                                <img src="frontend/images/ticket/cinema.png" alt="ticket">
-                            </div>
-                            <span class="type">sports</span>
-                            <select class="select-bar">
-                                <option value="football">football</option>
-                                <option value="cricket">cricket</option>
-                                <option value="cabadi">cabadi</option>
-                                <option value="madrid">madrid</option>
-                                <option value="gadon">gadon</option>
-                                <option value="rome">rome</option>
-                                <option value="khoksa">khoksa</option>
-                            </select>
+                            <span class="type">Theatre</span>
+                            {!! Form::select('theatre_id', $theatre, null, ['class' => 'select-bar']) !!}
                         </div>
                     </form>
                 </div>

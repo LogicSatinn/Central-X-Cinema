@@ -27,7 +27,8 @@ class StoreMovieRequest extends FormRequest
             'name' => 'required',
             'runtime' => 'required',
             'release_date' => 'required|date',
-            'description' => 'required'
+            'description' => 'required',
+            'language' => 'required|string'
         ];
     }
 }

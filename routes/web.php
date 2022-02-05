@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::view('/', 'frontend.index');
+Route::get('/', 'HomeController@index');
 
 
 Route::middleware(['auth'])->group(function () {

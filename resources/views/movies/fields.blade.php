@@ -16,6 +16,10 @@
             {!! Form::label('release_date', 'Release Date') !!}
             {!! Form::date('release_date', \Carbon\Carbon::now(), ['class' => 'form-control']) !!}
         </div>
+        <div class="form-group mb-3">
+            {!! Form::label('language', 'Language') !!}
+            {!! Form::select('language', ['English' => 'English', 'Swahili' => 'Swahili', 'Arabic' => 'Arabic', 'Hindi' => 'Hindi', 'Tamil' => 'Tamil', 'Multiple Language' => 'Multiple Language'], ['class' => 'form-control']) !!}
+        </div>
     </div>
 
     <div class="col-12">
