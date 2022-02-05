@@ -24,7 +24,10 @@ class UpdateMovieRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required',
+            'runtime' => 'required',
+            'release_date' => 'required|date',
+            'description' => 'required'
         ];
     }
 }

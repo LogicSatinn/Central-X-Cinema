@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Genre;
+use App\Models\Language;
 use App\Models\Movie;
 use App\Http\Requests\StoreMovieRequest;
 use App\Http\Requests\UpdateMovieRequest;
+use Illuminate\Http\Request;
 
 class MovieController extends Controller
 {
@@ -38,7 +41,7 @@ class MovieController extends Controller
      */
     public function store(StoreMovieRequest $request)
     {
-        Movie::create($request->all());
+        Movie::create($request->validated());
 
         return redirect(route('movies.index'));
     }
@@ -51,7 +54,41 @@ class MovieController extends Controller
      */
     public function show(Movie $movie)
     {
-        return view('movies.show', compact('movie'));
+        $genre = Genre::pluck('name', 'id');
+        $language = Language::pluck('name', 'id');
+        $movieSchedule = $movie->schedule()->get();
+        return view('movies.show', compact('movie', 'genre', 'movieSchedule', 'language'));
+    }
+
+    public function addPicture(Request $request, $id)
+    {
+        $movie = Movie::find($id);
+
+        $movie->addMediaFromRequest('image')->toMediaCollection('pictures');
+
+        $genre = Genre::pluck('name', 'id');
+
+        return redirect(route('movies.show', $movie, compact('genre')));
+    }
+
+    public function linkGenre(Request $request, $id)
+    {
+        $movie = Movie::find($id);
+
+        $movie->genre()->attach($request['movie_id']);
+
+
+        return redirect(route('movies.show', $request['movie_id']));
+    }
+
+    public function addLanguage(Request $request, $id)
+    {
+        $movie = Movie::find($id);
+
+        $movie->language()->attach($request['movie_id']);
+
+
+        return redirect(route('movies.show', $request['movie_id']));
     }
 
     /**

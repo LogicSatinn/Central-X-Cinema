@@ -1,13 +1,26 @@
 <!doctype html>
 <html lang="en">
 @include('layouts.inc.head')
-<body class="horizontal light  ">
-<div class="wrapper">
+<body>
+<div id="page-container" class="sidebar-dark side-scroll page-header-fixed page-header-dark main-content-boxed">
 @include('layouts.inc.nav')
 
-    @yield('content')
+@include('layouts.inc.header')
+<!-- Main Container -->
+    <main id="main-container">
 
-</div> <!-- .wrapper -->
+        @include('layouts.inc.hero')
+
+        @yield('content')
+
+    </main>
+    <!-- END Main Container -->
+
+    @include('layouts.inc.footer')
+</div>
+<!-- END Page Container -->
+
+
 @include('layouts.inc.scripts')
 </body>
 </html>

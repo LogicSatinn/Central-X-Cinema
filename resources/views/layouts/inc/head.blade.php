@@ -1,26 +1,23 @@
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="author" content="">
-    <link rel="icon" href="favicon.ico">
-    <title>  {{config('app.name')}} | @yield('title')</title>
-    <!-- Simple bar CSS -->
-    <link rel="stylesheet" href="{{asset('css/simplebar.css')}}">
-    <!-- Fonts CSS -->
-    <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <!-- Icons CSS -->
-    <link rel="stylesheet" href="{{asset('css/feather.css')}}">
-    <link rel="stylesheet" href="{{asset('css/select2.css')}}">
-    <link rel="stylesheet" href="{{asset('css/dropzone.css')}}">
-    <link rel="stylesheet" href="{{asset('css/uppy.min.css')}}">
-    <link rel="stylesheet" href="{{asset('css/jquery.steps.css')}}">
-    <link rel="stylesheet" href="{{asset('css/jquery.timepicker.css')}}">
-    <link rel="stylesheet" href="{{asset('css/quill.snow.css')}}">
-    <!-- Date Range Picker CSS -->
-    <link rel="stylesheet" href="{{asset('css/daterangepicker.css')}}">
-    <!-- App CSS -->
-    <link rel="stylesheet" href="{{asset('css/app-light.css')}}" id="lightTheme">
-    <link rel="stylesheet" href="{{asset('css/app-dark.css')}}" id="darkTheme" disabled>
+
+    <title>  {{config('app.name')}} | Login </title>
+
+    <!-- Icons -->
+    <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
+    <link rel="shortcut icon" href="{{asset('assets/media/favicons/favicon.png')}}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{asset('assets/media/favicons/favicon-192x192.png')}}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{asset('assets/media/favicons/apple-touch-icon-180x180.png')}}">
+    <!-- END Icons -->
+
+    <!-- Stylesheets -->
+    <!-- Fonts and Dashmix framework -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,400i,600,700">
+    <link rel="stylesheet" id="css-main" href="{{asset('assets/css/dashmix.min.css')}}">
+
+    <!-- <link rel="stylesheet" id="css-theme" href="assets/css/themes/xwork.min.css"> -->
+    <link rel="stylesheet" id="css-theme" href="{{asset('assets/css/themes/xpro.min.css')}}">
+    <!-- END Stylesheets -->
 </head>
