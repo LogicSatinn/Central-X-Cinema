@@ -7,7 +7,7 @@
 
         <div class="form-group mb-3">
             {!! Form::label('experience', 'Experience') !!}
-            {!! Form::select('experience', ['2D' => '2D', '3D' => '3D'], null, ['class' => 'form-control']) !!}
+            {!! Form::select('experience', ['2D' => '2D', 'IMAX' => 'IMAX', '3D' => '3D'], null, ['class' => 'form-control']) !!}
         </div>
 
     </div> <!-- /.col -->

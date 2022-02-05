@@ -16,7 +16,7 @@
                         <!-- Header -->
                         <div class="mb-3 text-center">
                             <a class="link-fx font-w700 font-size-h1" href="{{url('/')}}">
-                                <span class="text-dark">XYZ </span><span class="text-primary">Cinema</span>
+                                <span class="text-dark">Central X </span><span class="text-primary">Cinema</span>
                             </a>
                             <p class="text-uppercase font-w700 font-size-sm text-muted">Sign In</p>
                         </div>

@@ -4,7 +4,6 @@
         <th class="text-center" style="width: 50px;">#</th>
         <th style="width: 60px;">Movie</th>
         <th class="d-none d-sm-table-cell" style="width: 20%;">Hall</th>
-        <th class="d-none d-sm-table-cell" style="width: 20%;">Theatre</th>
         <th class="d-none d-sm-table-cell" style="width: 20%;">Price</th>
         <th class="d-none d-sm-table-cell" style="width: 20%;">Show Time</th>
         <th style="width: 15%;">Action</th>
@@ -19,9 +18,6 @@
             </td>
             <td class="d-none d-sm-table-cell">
                 {{$schedule->hall->name}}
-            </td>
-            <td class="d-none d-sm-table-cell">
-                {{$schedule->theatre->name}}
             </td>
             <td class="d-none d-sm-table-cell">
                 {{$schedule->price}}

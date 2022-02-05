@@ -4,7 +4,7 @@
         <div class="footer-top">
             <div class="logo">
                 <a href="{{url('/')}}">
-                    <img src="{{asset('assets/media/favicons/favicon.png')}}" alt="footer"> XYZ Cinema
+                    <img src="{{asset('assets/media/favicons/favicon.png')}}" alt="footer"> {{config('app.name')}}
                 </a>
             </div>
             <ul class="social-icons">

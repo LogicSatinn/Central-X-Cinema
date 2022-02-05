@@ -7,13 +7,18 @@
 @section('content')
 
     <!-- ==========Banner-Section========== -->
-    <section class="details-banner bg_img" data-background="frontend/images/banner/banner03.jpg">
+    <section class="details-banner bg_img" data-background="{{asset('frontend/images/banner/banner14.jpg')}}">
         <div class="container">
             <div class="details-banner-wrapper">
                 <div class="details-banner-thumb">
-                    <img src="frontend/images/movie/venus.jpg" alt="movie">
-                    <a href="https://www.youtube.com/embed/KGeBMAgc46E" class="video-popup">
-                        <img src="frontend/images/movie/video-button.png" alt="movie">
+                    @if($movie->getFirstMediaUrl('pictures') == null)
+                        <img src="{{asset('frontend/images/movie/venus.jpg')}}" alt="movie">
+                    @else
+                        <img src="{{asset($movie->getFirstMediaUrl('pictures'))}}"
+                             alt="{{$movie->name}}" style="width: 275px; height: 396px;">
+                    @endif
+                    <a href="#" class="video-popup">
+                        <img src="{{asset('frontend/images/movie/video-button.png')}}" alt="movie">
                     </a>
                 </div>
                 <div class="details-banner-content offset-lg-3">
@@ -84,17 +89,6 @@
                                     <div class="item">
                                         <h5 class="sub-title">Synopsis</h5>
                                         <p>{{$movie->description}}</p>
-                                    </div>
-                                    <div class="item">
-                                        <div class="header">
-                                            <h5 class="sub-title">cast</h5>
-                                            <div class="navigation">
-                                                <div class="cast-prev"><i
-                                                        class="flaticon-double-right-arrows-angles"></i></div>
-                                                <div class="cast-next"><i
-                                                        class="flaticon-double-right-arrows-angles"></i></div>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>

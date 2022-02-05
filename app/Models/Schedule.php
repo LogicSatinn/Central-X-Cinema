@@ -11,7 +11,7 @@ class Schedule extends Model
     use HasFactory;
 
     public $fillable = [
-        'theatre_id', 'movie_id', 'hall_id', 'showtime', 'showdate', 'price'
+         'movie_id', 'hall_id', 'showtime', 'showdate', 'price'
     ];
 
     protected $dates = [
@@ -23,10 +23,6 @@ class Schedule extends Model
         return $this->belongsTo(Movie::class);
     }
 
-    public function theatre()
-    {
-        return $this->belongsTo(Theatre::class);
-    }
 
     public function hall()
     {

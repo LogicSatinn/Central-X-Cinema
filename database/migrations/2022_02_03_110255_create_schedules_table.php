@@ -18,9 +18,8 @@ class CreateSchedulesTable extends Migration
             $table->integer('price');
             $table->time('showtime');
             $table->date('showdate');
-            $table->foreignId('movie_id');
-            $table->foreignId('hall_id');
-            $table->foreignId('theatre_id');
+            $table->foreignId('movie_id')->constrained();
+            $table->foreignId('hall_id')->constrained();
             $table->timestamps();
         });
     }

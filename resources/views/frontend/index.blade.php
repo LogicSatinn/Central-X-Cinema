@@ -53,6 +53,9 @@
                                 <div class="form-group">
                                     <input type="checkbox" name="mode" id="mode2"><label for="mode2">3d</label>
                                 </div>
+                                <div class="form-group">
+                                    <input type="checkbox" name="mode" id="mode2"><label for="mode2">imax</label>
+                                </div>
                             </div>
                         </div>
                     </div>

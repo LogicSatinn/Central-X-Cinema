@@ -54,7 +54,7 @@ class TheatreController extends Controller
      */
     public function show(Theatre $theatre)
     {
-        //
+        return view('theatre.show', compact('theatre'));
     }
 
     /**

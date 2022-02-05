@@ -26,7 +26,6 @@ class UpdateScheduleRequest extends FormRequest
         return [
             'movie_id' => 'required',
             'hall_id' => 'required',
-            'theatre_id' => 'required',
             'showtime' => 'required',
             'showdate' => 'required|date',
             'price' => 'required|numeric'

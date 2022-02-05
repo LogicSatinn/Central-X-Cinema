@@ -10,11 +10,6 @@
     </div>
 
     <div class="form-group col-md-6 mb-3">
-        {!! Form::label('theatre_id', 'Theatre') !!}
-        {!! Form::select('theatre_id', $theatre, null, ['class' => 'form-control']) !!}
-    </div>
-
-    <div class="form-group col-md-6 mb-3">
         {!! Form::label('price', 'Ticket Price') !!}
         {!! Form::number('price', null, ['class' => 'form-control']) !!}
     </div>

@@ -36,7 +36,7 @@
                             <div class="dropdown-menu dropdown-menu-right">
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#addGenre">Link
                                     Genre</a>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#addLanguage">Link
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#addLanguage">Add
                                     Language</a>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#addPicture">Add
                                     Movie
