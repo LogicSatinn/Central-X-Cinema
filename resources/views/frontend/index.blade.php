@@ -128,7 +128,7 @@
                                                 <div class="col-sm-6 col-lg-4">
                                                     <div class="movie-grid">
                                                         <div class="movie-thumb c-thumb">
-                                                            <a href="#">
+                                                            <a href="{{route('movieDetails', $movie->id)}}">
                                                                 @if($movie->getFirstMediaUrl('pictures') == null)
                                                                     <img src="{{asset('frontend/images/movie/movie01.jpg')}}"
                                                                          alt="{{ $movie->name }}" >
@@ -141,7 +141,7 @@
                                                         </div>
                                                         <div class="movie-content bg-one">
                                                             <h5 class="title m-0">
-                                                                <a href="#">{{ $movie->name }}</a>
+                                                                <a href="{{route('movieDetails', $movie->id)}}">{{ $movie->name }}</a>
                                                             </h5>
                                                             <ul class="movie-rating-percent">
                                                                 <li>
@@ -172,7 +172,7 @@
                                     @foreach ($movies as $movie)
                                         <div class="movie-list">
                                             <div class="movie-thumb c-thumb">
-                                                <a href="#" class="w-100 bg_img h-100"
+                                                <a href="{{route('movieDetails', $movie->id)}}" class="w-100 bg_img h-100"
                                                    data-background="{{ asset('frontend/images/movie/movie01.jpg') }}">
 
                                                     @if($movie->getFirstMediaUrl('pictures') == null)
@@ -188,7 +188,7 @@
                                             </div>
                                             <div class="movie-content bg-one">
                                                 <h5 class="title">
-                                                    <a href="#">{{ $movie->name }}</a>
+                                                    <a href="{{route('movieDetails', $movie->id)}}">{{ $movie->name }}</a>
                                                 </h5>
                                                 <p class="duration">{{ $movie->runtime }}</p>
                                                 <div class="movie-tags">

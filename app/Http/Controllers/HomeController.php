@@ -17,4 +17,9 @@ class HomeController extends Controller
             'movies' => Movie::paginate(6)
         ]);
     }
+
+    public function movieDetails(Movie $movie)
+    {
+        return view('frontend.movie_details', compact('movie'));
+    }
 }

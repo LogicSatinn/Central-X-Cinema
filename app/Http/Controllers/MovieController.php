@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Genre;
+use App\Models\Language;
 use App\Models\Movie;
 use App\Http\Requests\StoreMovieRequest;
 use App\Http\Requests\UpdateMovieRequest;
@@ -54,8 +55,9 @@ class MovieController extends Controller
     public function show(Movie $movie)
     {
         $genre = Genre::pluck('name', 'id');
+        $language = Language::pluck('name', 'id');
         $movieSchedule = $movie->schedule()->get();
-        return view('movies.show', compact('movie', 'genre', 'movieSchedule'));
+        return view('movies.show', compact('movie', 'genre', 'movieSchedule', 'language'));
     }
 
     public function addPicture(Request $request, $id)
@@ -75,9 +77,18 @@ class MovieController extends Controller
 
         $movie->genre()->attach($request['movie_id']);
 
-        $genre = Genre::pluck('name', 'id');
 
-        return redirect(route('movies.show', $request['movie_id'], compact('genre')));
+        return redirect(route('movies.show', $request['movie_id']));
+    }
+
+    public function addLanguage(Request $request, $id)
+    {
+        $movie = Movie::find($id);
+
+        $movie->language()->attach($request['movie_id']);
+
+
+        return redirect(route('movies.show', $request['movie_id']));
     }
 
     /**

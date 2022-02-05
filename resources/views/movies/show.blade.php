@@ -36,6 +36,8 @@
                             <div class="dropdown-menu dropdown-menu-right">
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#addGenre">Link
                                     Genre</a>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#addLanguage">Link
+                                    Language</a>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#addPicture">Add
                                     Movie
                                     Picture</a>
@@ -59,8 +61,11 @@
                         </div>
                         <div class="col-md-8">
                             <div class="card-body p-2">
-                                <h5 class="p-2"><span
+                                <h5><span
                                         class="badge badge-dark">@foreach($movie->genre as $genre) {{$genre->name}} @endforeach</span>
+                                </h5>
+                                <h5><span
+                                        class="badge badge-dark">@foreach($movie->language as $language) {{$language->name}} @endforeach</span>
                                 </h5>
                                 <p class="small mb-0 text-muted">Released
                                     on: {{$movie->release_date->format('d M Y')}}</p>
@@ -98,6 +103,35 @@
                     <div class="form-group">
                         <input class="form-control" name="movie_id" value="{{$movie->id}}"
                                placeholder="{{$movie->name}}" hidden>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn mb-2 btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn mb-2 btn-primary">Done</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="addLanguage" tabindex="-1" role="dialog" aria-labelledby="addLanguage" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addLanguage">Add Language</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                {!! Form::open(['route' => ['addLanguage', $movie->id]]) !!}
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="col-form-label">Language:</label>
+                        {!! Form::select('language_id', $language, null, ['class' => 'form-control']) !!}
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" name="movie_id" value="{{$movie->id}}" hidden>
                     </div>
 
                 </div>

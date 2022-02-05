@@ -13,7 +13,7 @@ class Movie extends Model implements HasMedia
     use HasFactory, InteractsWithMedia;
 
     public $fillable = [
-        'name', 'description', 'release_date', 'runtime', 'language'
+        'name', 'description', 'release_date', 'runtime'
     ];
 
     protected $dates = ['release_date'];
@@ -31,6 +31,11 @@ class Movie extends Model implements HasMedia
     public function schedule()
     {
         return $this->hasMany(Schedule::class);
+    }
+
+    public function language()
+    {
+        return $this->belongsToMany(Language::class);
     }
 
     public function registerMediaCollections(): void
