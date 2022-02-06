@@ -22,7 +22,8 @@
             </div>
             <div class="tab-area">
                 <div class="tab-item active">
-                    <form class="ticket-search-form">
+                    <form class="ticket-search-form" method="post" action="{{ url('/query') }}">
+                        @csrf
                         <div class="form-group large">
                             <input type="text" placeholder="Search fo Movies">
                             <button type="submit"><i class="fas fa-search"></i></button>
@@ -40,6 +41,11 @@
                             </div>
                             <span class="type">Theatre</span>
                             {!! Form::select('theatre_id', $theatre, null, ['class' => 'select-bar']) !!}
+                        </div>
+                        <div class="form-group">
+                            <div class="thumb">
+                                <button type="submit" class="">Search</button>
+                            </div>
                         </div>
                     </form>
                 </div>

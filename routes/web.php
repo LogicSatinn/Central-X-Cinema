@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomeController@index');
 Route::get('/movie-details/{movie}', 'HomeController@movieDetails')->name('movieDetails');
+Route::post('/query', 'HomeController@query');
 
 
 Route::middleware(['auth'])->group(function () {

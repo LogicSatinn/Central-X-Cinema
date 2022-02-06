@@ -22,4 +22,9 @@ class HomeController extends Controller
     {
         return view('frontend.movie_details', compact('movie'));
     }
+
+    public function query(Request $request)
+    {
+        dd($request->all());
+    }
 }
