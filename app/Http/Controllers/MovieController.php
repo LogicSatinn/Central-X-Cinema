@@ -54,10 +54,10 @@ class MovieController extends Controller
      */
     public function show(Movie $movie)
     {
-        $genre = Genre::pluck('name', 'id');
-        $language = Language::pluck('name', 'id');
+        $genres = Genre::all();
+        $languages = Language::all();
         $movieSchedule = $movie->schedule()->get();
-        return view('movies.show', compact('movie', 'genre', 'movieSchedule', 'language'));
+        return view('movies.show', compact('movie', 'genres', 'movieSchedule', 'languages'));
     }
 
     public function addPicture(Request $request, $id)
@@ -75,18 +75,17 @@ class MovieController extends Controller
     {
         $movie = Movie::find($id);
 
-        $movie->genre()->attach($request['movie_id']);
-
+        $movie->genre()->attach($request['genre_id']);
 
         return redirect(route('movies.show', $request['movie_id']));
     }
+
 
     public function addLanguage(Request $request, $id)
     {
         $movie = Movie::find($id);
 
-        $movie->language()->attach($request['movie_id']);
-
+        $movie->language()->attach($request['genre_id']);
 
         return redirect(route('movies.show', $request['movie_id']));
     }

@@ -7,7 +7,7 @@ Route::get('/movie-details/{movie}', 'HomeController@movieDetails')->name('movie
 
 
 Route::middleware(['auth'])->group(function () {
-    Route::post('/movies/{id}/linkGenre', 'MovieController@linkGenre')->name('linkGenre');
+    Route::post('/movies/{id}/linkGenre', 'MovieController@linkGenre');
     Route::post('/movies/{id}/addLanguage', 'MovieController@addLanguage')->name('addLanguage');
     Route::post('/movies/{id}/addPicture', 'MovieController@addPicture')->name('addPicture');
     Route::resource('movies', 'MovieController');

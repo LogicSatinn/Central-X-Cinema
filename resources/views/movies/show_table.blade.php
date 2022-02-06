@@ -26,7 +26,7 @@
                 <tr>
                     <th class="text-center" scope="row">{{$i++}}</th>
                     <td class="font-w600">
-                        <a href="#">{{$schedule->theatre->name}}</a>
+                        <a href="#">{{$schedule->hall->theatre->name}}</a>
                     </td>
                     <td class="d-none d-sm-table-cell">
                         {{$schedule->hall->name}}

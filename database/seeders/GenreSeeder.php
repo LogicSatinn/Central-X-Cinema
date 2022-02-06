@@ -17,7 +17,6 @@ class GenreSeeder extends Seeder
         $genre = [
             ['name' => 'Horror'],
             ['name' => 'Thriller'],
-            ['name' => 'Adventure'],
             ['name' => 'Animation'],
             ['name' => 'Adventure'],
             ['name' => 'Romance'],

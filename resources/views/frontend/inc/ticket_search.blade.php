@@ -36,18 +36,6 @@
                         </div>
                         <div class="form-group">
                             <div class="thumb">
-                                <img src="frontend/images/ticket/date.png" alt="ticket">
-                            </div>
-                            <span class="type">date</span>
-                            <select class="select-bar">
-                                <option value="26-12-19">23/10/2019</option>
-                                <option value="26-12-19">24/10/2019</option>
-                                <option value="26-12-19">25/10/2019</option>
-                                <option value="26-12-19">26/10/2019</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <div class="thumb">
                                 <img src="frontend/images/ticket/cinema.png" alt="ticket">
                             </div>
                             <span class="type">Theatre</span>
