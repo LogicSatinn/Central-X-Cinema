@@ -100,4 +100,33 @@
     </section>
     <!-- ==========Movie-Section========== -->
 
+    <!-- ==========Movie-Section========== -->
+    <div class="ticket-plan-section padding-bottom padding-top">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-9 mb-5 mb-lg-0">
+                    <ul class="seat-plan-wrapper bg-five">
+                        @foreach($movieSchedule as $schedule)
+                            <li>
+                                <div class="movie-name">
+                                    {{$schedule->showdate->format('l')}} {{$schedule->showtime}}
+                                </div>
+                                <div class="movie-schedule">
+                                    <div class="">
+                                        Theatre: {{$schedule->hall->theatre->name}}
+                                        <br><br>
+                                        Hall: {{$schedule->hall->name}}
+                                        <br>
+                                        <br>
+                                        Ticket Price: Tsh {{number_format($schedule->price)}}
+                                    </div>
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ==========Movie-Section========== -->
+
 @endsection

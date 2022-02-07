@@ -61,11 +61,15 @@
                         </div>
                         <div class="col-md-8">
                             <div class="card-body p-2">
-                                <h5><span
-                                        class="badge badge-dark">@foreach($movie->genre as $genre) {{$genre->name}} @endforeach</span>
+                                <h5>
+                                    @foreach($movie->genre as $genre)
+                                    <span class="badge badge-dark"> {{$genre->name}}</span>
+                                    @endforeach
                                 </h5>
-                                <h5><span
-                                        class="badge badge-dark">@foreach($movie->language as $language) {{$language->name}} @endforeach</span>
+                                <h5>
+                                    @foreach($movie->language as $language)
+                                    <span class="badge badge-dark"> {{$language->name}}</span>
+                                    @endforeach
                                 </h5>
                                 <p class="small mb-0 text-muted">Released
                                     on: {{$movie->release_date->format('d M Y')}}</p>
@@ -129,7 +133,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                {!! Form::open(['route' => ['addLanguage', $movie->id]]) !!}
+                {!! Form::open(['url' => ['/movies/'.$movie->id.'/addLanguage']]) !!}
                 <div class="modal-body">
                     <div class="form-group">
                         <label class="col-form-label">Language:</label>

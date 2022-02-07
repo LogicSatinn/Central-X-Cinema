@@ -3,6 +3,10 @@
 @include('layouts.inc.head')
 <body>
 
+    @section('title')
+        Login
+    @endsection
+
 <div id="page-container">
 
     <!-- Main Container -->

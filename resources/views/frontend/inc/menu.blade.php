@@ -3,6 +3,9 @@
         <a href="{{url('/')}}">Home</a>
     </li>
     <li>
+        <a href="{{url('/timetable')}}">Schedule</a>
+    </li>
+    <li>
         <a href="#">Contact Us</a>
     </li>
     <li class="header-button pr-0">

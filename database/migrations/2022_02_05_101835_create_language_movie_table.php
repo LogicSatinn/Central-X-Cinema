@@ -14,6 +14,7 @@ class CreateLanguageMovieTable extends Migration
     public function up()
     {
         Schema::create('language_movie', function (Blueprint $table) {
+            $table->id();
             $table->foreignId('movie_id')->constrained();
             $table->foreignId('language_id')->constrained();
         });

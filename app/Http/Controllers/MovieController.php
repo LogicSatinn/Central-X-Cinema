@@ -85,7 +85,7 @@ class MovieController extends Controller
     {
         $movie = Movie::find($id);
 
-        $movie->language()->attach($request['genre_id']);
+        $movie->language()->attach($request['language_id']);
 
         return redirect(route('movies.show', $request['movie_id']));
     }

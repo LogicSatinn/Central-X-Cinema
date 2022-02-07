@@ -25,7 +25,7 @@
 </div>
 <button type="submit" class="btn mt-2 mb-2 btn-primary"
 ><span
-        class="fe fe-arrow-right fe-16 mr-2"></span>Save
+class="fa fa-arrow-right mr-2"></span></span>Save
 </button>
 
 
