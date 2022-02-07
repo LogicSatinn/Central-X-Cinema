@@ -8,7 +8,6 @@ Route::post('/query', 'HomeController@movieQuery');
 Route::get('/timetable', 'HomeController@schedule');
 Route::post('/scheduleQuery', 'HomeController@scheduleQuery');
 
-
 Route::middleware(['auth'])->group(function () {
     Route::post('/movies/{id}/linkGenre', 'MovieController@linkGenre');
     Route::post('/movies/{id}/addLanguage', 'MovieController@addLanguage');
