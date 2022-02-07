@@ -18,6 +18,8 @@ class MovieController extends Controller
      */
     public function index()
     {
+        $this->authorize('view_all_movies');
+
         return view('movies.index', [
             'movies' => Movie::all()
         ]);
@@ -30,6 +32,8 @@ class MovieController extends Controller
      */
     public function create()
     {
+        $this->authorize('create_movie');
+
         return view('movies.create');
     }
 
@@ -54,6 +58,8 @@ class MovieController extends Controller
      */
     public function show(Movie $movie)
     {
+        $this->authorize('view_movie');
+
         $genres = Genre::all();
         $languages = Language::all();
         $movieSchedule = $movie->schedule()->get();
@@ -62,6 +68,8 @@ class MovieController extends Controller
 
     public function addPicture(Request $request, $id)
     {
+        $this->authorize('add_picture');
+
         $movie = Movie::find($id);
 
         $movie->addMediaFromRequest('image')->toMediaCollection('pictures');
@@ -73,6 +81,8 @@ class MovieController extends Controller
 
     public function linkGenre(Request $request, $id)
     {
+        $this->authorize('add_genre');
+
         $movie = Movie::find($id);
 
         $movie->genre()->attach($request['genre_id']);
@@ -83,6 +93,8 @@ class MovieController extends Controller
 
     public function addLanguage(Request $request, $id)
     {
+        $this->authorize('add_language');
+
         $movie = Movie::find($id);
 
         $movie->language()->attach($request['language_id']);
@@ -98,6 +110,8 @@ class MovieController extends Controller
      */
     public function edit(Movie $movie)
     {
+        $this->authorize('edit_movie');
+
         return view('movies.edit', compact('movie'));
     }
 
@@ -110,6 +124,8 @@ class MovieController extends Controller
      */
     public function update(UpdateMovieRequest $request, Movie $movie)
     {
+        $this->authorize('update_movie');
+
         $movie->update($request->except(['_method', '_token']));
 
         return redirect(route('movies.index'));
@@ -123,6 +139,8 @@ class MovieController extends Controller
      */
     public function destroy(Movie $movie)
     {
+        $this->authorize('delete_movie');
+
         $movie->delete();
 
         return redirect(route('movies.index'));

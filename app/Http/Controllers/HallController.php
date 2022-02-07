@@ -16,6 +16,8 @@ class HallController extends Controller
      */
     public function index()
     {
+        $this->authorize('view_all_halls');
+
         return view('hall.index', [
             'halls' => Hall::all()
         ]);
@@ -28,6 +30,8 @@ class HallController extends Controller
      */
     public function create()
     {
+        $this->authorize('create_hall');
+
         return view('hall.create', [
             'theatre' => Theatre::pluck('name', 'id')
         ]);
@@ -65,6 +69,8 @@ class HallController extends Controller
      */
     public function edit(Hall $hall)
     {
+        $this->authorize('edit_hall');
+
         return view('hall.edit', compact('hall'), [
             'theatre' => Theatre::pluck('name', 'id')
         ]);
@@ -79,6 +85,8 @@ class HallController extends Controller
      */
     public function update(UpdateHallRequest $request, Hall $hall)
     {
+        $this->authorize('update_hall');
+
         $hall->update($request->validated());
 
         return redirect(route('hall.index'));
@@ -92,6 +100,8 @@ class HallController extends Controller
      */
     public function destroy(Hall $hall)
     {
+        $this->authorize('delete_hall');
+        
         $hall->delete();
 
         return redirect(route('hall.index'));

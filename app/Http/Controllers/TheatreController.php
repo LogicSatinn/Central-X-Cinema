@@ -16,6 +16,8 @@ class TheatreController extends Controller
      */
     public function index()
     {
+        $this->authorize('view_all_theatres');
+
         return view('theatre.index', [
             'theatres' => Theatre::all()
         ]);
@@ -28,6 +30,8 @@ class TheatreController extends Controller
      */
     public function create()
     {
+        $this->authorize('create_theatre');
+
         return view('theatre.create', [
             'region' => Region::pluck('name', 'id')
         ]);
@@ -54,6 +58,8 @@ class TheatreController extends Controller
      */
     public function show(Theatre $theatre)
     {
+        $this->authorize('view_theatre');
+
         return view('theatre.show', compact('theatre'));
     }
 
@@ -65,6 +71,8 @@ class TheatreController extends Controller
      */
     public function edit(Theatre $theatre)
     {
+        $this->authorize('edit_theatre');
+
         return view('theatre.edit', compact('theatre'), [
             'region' => Region::pluck('name', 'id')
         ]);
@@ -79,6 +87,8 @@ class TheatreController extends Controller
      */
     public function update(UpdateTheatreRequest $request, Theatre $theatre)
     {
+        $this->authorize('update_theatre');
+
         $theatre->update($request->validated());
 
         return redirect(route('theatre.index'));
@@ -92,6 +102,8 @@ class TheatreController extends Controller
      */
     public function destroy(Theatre $theatre)
     {
+        $this->authorize('delete_theatre');
+        
         $theatre->delete();
 
         return redirect(route('theatre.index'));

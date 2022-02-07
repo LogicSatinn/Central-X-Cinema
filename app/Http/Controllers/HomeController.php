@@ -53,16 +53,6 @@ class HomeController extends Controller
             }
         }
 
-        // if ($request->has('hall_experience')) {
-        //     if ($request['hall_experience'] == null) {
-        //         $movie->get();
-        //     } else {
-        //         $movie->whereHas('schedule', function ($query) use ($request) {
-        //             $query->whereHas('hall', function ($query) use ($request) {
-        //                 $query->where('experience', $request['hall_experience']);
-        //             })->get();
-        //         })->get();
-        //     }
 
             $movies = $movie->paginate(6);
 
