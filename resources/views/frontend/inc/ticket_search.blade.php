@@ -22,36 +22,24 @@
             </div>
             <div class="tab-area">
                 <div class="tab-item active">
-                    <form class="ticket-search-form">
-                        <div class="form-group large">
-                            <input type="text" placeholder="Search fo Movies">
-                            <button type="submit"><i class="fas fa-search"></i></button>
-                        </div>
+                    <form class="ticket-search-form" method="post" action="{{ url('/query') }}">
+                        @csrf
                         <div class="form-group">
                             <div class="thumb">
                                 <img src="frontend/images/ticket/city.png" alt="ticket">
                             </div>
-                            <span class="type">city</span>
-                            {!! Form::select('region_id', $region, null,['class' => 'select-bar']) !!}
-                        </div>
-                        <div class="form-group">
-                            <div class="thumb">
-                                <img src="frontend/images/ticket/date.png" alt="ticket">
-                            </div>
-                            <span class="type">date</span>
-                            <select class="select-bar">
-                                <option value="26-12-19">23/10/2019</option>
-                                <option value="26-12-19">24/10/2019</option>
-                                <option value="26-12-19">25/10/2019</option>
-                                <option value="26-12-19">26/10/2019</option>
-                            </select>
+                            <span class="type">Genre</span>
+                            {!! Form::select('genre_id', $genre, null,['class' => 'select-bar']) !!}
                         </div>
                         <div class="form-group">
                             <div class="thumb">
                                 <img src="frontend/images/ticket/cinema.png" alt="ticket">
                             </div>
-                            <span class="type">Theatre</span>
-                            {!! Form::select('theatre_id', $theatre, null, ['class' => 'select-bar']) !!}
+                            <span class="type">Language</span>
+                            {!! Form::select('language_id', $language, null, ['class' => 'select-bar']) !!}
+                        </div>
+                        <div class="form-group large">
+                            <button type="submit"><i class="fas fa-search"></i></button>
                         </div>
                     </form>
                 </div>

@@ -18,6 +18,8 @@ class ScheduleController extends Controller
      */
     public function index()
     {
+        $this->authorize('view_all_schedules');
+
         return view('schedule.index', [
             'schedules' => Schedule::all()
         ]);
@@ -30,6 +32,8 @@ class ScheduleController extends Controller
      */
     public function create()
     {
+        $this->authorize('create_schedule');
+
         return view('schedule.create', [
             'theatre' => Theatre::pluck('name', 'id'),
             'movie' => Movie::pluck('name', 'id'),
@@ -69,6 +73,8 @@ class ScheduleController extends Controller
      */
     public function edit(Schedule $schedule)
     {
+        $this->authorize('edit_schedule');
+
         return view('schedule.edit', compact('schedule'), [
             'theatre' => Theatre::pluck('name', 'id'),
             'movie' => Movie::pluck('name', 'id'),
@@ -85,6 +91,8 @@ class ScheduleController extends Controller
      */
     public function update(UpdateScheduleRequest $request, Schedule $schedule)
     {
+        $this->authorize('update_schedule');
+
         $schedule->update($request->validated());
 
         return redirect(route('schedule.index'));
@@ -98,6 +106,8 @@ class ScheduleController extends Controller
      */
     public function destroy(Schedule $schedule)
     {
+        $this->authorize('delete_schedule');
+        
         $schedule->delete();
 
         return redirect(route('schedule.index'));

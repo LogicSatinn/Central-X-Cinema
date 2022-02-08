@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLanguageMovieTable extends Migration
+class CreateReservationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateLanguageMovieTable extends Migration
      */
     public function up()
     {
-        Schema::create('language_movie', function (Blueprint $table) {
+        Schema::create('reservations', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('movie_id')->constrained();
-            $table->foreignId('language_id')->constrained();
+            $table->timestamps();
         });
     }
 
@@ -27,6 +26,6 @@ class CreateLanguageMovieTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('language_movie');
+        Schema::dropIfExists('reservations');
     }
 }

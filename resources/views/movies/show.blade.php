@@ -61,11 +61,15 @@
                         </div>
                         <div class="col-md-8">
                             <div class="card-body p-2">
-                                <h5><span
-                                        class="badge badge-dark">@foreach($movie->genre as $genre) {{$genre->name}} @endforeach</span>
+                                <h5>
+                                    @foreach($movie->genre as $genre)
+                                    <span class="badge badge-dark"> {{$genre->name}}</span>
+                                    @endforeach
                                 </h5>
-                                <h5><span
-                                        class="badge badge-dark">@foreach($movie->language as $language) {{$language->name}} @endforeach</span>
+                                <h5>
+                                    @foreach($movie->language as $language)
+                                    <span class="badge badge-dark"> {{$language->name}}</span>
+                                    @endforeach
                                 </h5>
                                 <p class="small mb-0 text-muted">Released
                                     on: {{$movie->release_date->format('d M Y')}}</p>
@@ -94,11 +98,16 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                {!! Form::open(['route' => ['linkGenre', $movie->id]]) !!}
+               <form action="{{ url('/movies/'. $movie->id . '/linkGenre') }}" method='post'>
+                @csrf
                 <div class="modal-body">
                     <div class="form-group">
                         <label class="col-form-label">Genre:</label>
-                        {!! Form::select('genre_id', $genre, null, ['class' => 'form-control']) !!}
+                        <select name="genre_id" class="form-control">
+                            @foreach ($genres as $genre)
+                                <option value="{{ $genre->id }}">{{ $genre->name }}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="form-group">
                         <input class="form-control" name="movie_id" value="{{$movie->id}}"
@@ -124,11 +133,15 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                {!! Form::open(['route' => ['addLanguage', $movie->id]]) !!}
+                {!! Form::open(['url' => ['/movies/'.$movie->id.'/addLanguage']]) !!}
                 <div class="modal-body">
                     <div class="form-group">
                         <label class="col-form-label">Language:</label>
-                        {!! Form::select('language_id', $language, null, ['class' => 'form-control']) !!}
+                        <select name="language_id" class="form-control">
+                            @foreach ($languages as $language)
+                                <option value="{{ $language->id }}">{{ $language->name }}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="form-group">
                         <input class="form-control" name="movie_id" value="{{$movie->id}}" hidden>
