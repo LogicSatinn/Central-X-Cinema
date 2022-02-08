@@ -12,6 +12,7 @@
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
         "laravelcollective/html": "^6.2",
+        "openpesa/laravel-pesa": "^0.0.3",
         "spatie/laravel-medialibrary": "^9.0.0",
         "spatie/laravel-permission": "^5.5"
     },

@@ -18,5 +18,7 @@ class DatabaseSeeder extends Seeder
         $this->call(RegionSeeder::class);
         $this->call(GenreSeeder::class);
         $this->call(LanguageSeeder::class);
+        $this->call(TheatreSeeder::class);
+        $this->call(HallSeeder::class);
     }
 }
