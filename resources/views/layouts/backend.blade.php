@@ -11,6 +11,15 @@
 
         @include('layouts.inc.hero')
 
+<<<<<<< Updated upstream
+=======
+        @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success_message') }}
+            </div>
+        @endif
+
+>>>>>>> Stashed changes
         @yield('content')
 
     </main>
