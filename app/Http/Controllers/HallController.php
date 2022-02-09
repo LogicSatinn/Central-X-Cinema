@@ -47,7 +47,7 @@ class HallController extends Controller
     {
         Hall::create($request->validated());
 
-        return redirect(route('hall.index'));
+        return redirect(route('hall.index'))->withSuccess('Hall added successfully.');
     }
 
     /**
@@ -89,7 +89,7 @@ class HallController extends Controller
 
         $hall->update($request->validated());
 
-        return redirect(route('hall.index'));
+        return redirect(route('hall.index'))->withSuccess('Hall updated successfully');
     }
 
     /**
@@ -101,9 +101,9 @@ class HallController extends Controller
     public function destroy(Hall $hall)
     {
         $this->authorize('delete_hall');
-        
+
         $hall->delete();
 
-        return redirect(route('hall.index'));
+        return redirect(route('hall.index'))->withSuccess('Hall deleted successfully');
     }
 }

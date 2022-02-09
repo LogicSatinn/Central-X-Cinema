@@ -20,7 +20,7 @@
                 {{$schedule->hall->name}}
             </td>
             <td class="d-none d-sm-table-cell">
-                {{$schedule->price}}
+                {{number_format($schedule->price)}} TZS
             </td>
             <td class="d-none d-sm-table-cell">
                 {{$schedule->showdate->format('d M Y')}} | {{$schedule->showtime}}

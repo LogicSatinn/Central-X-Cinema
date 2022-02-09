@@ -7,6 +7,7 @@ use App\Models\Schedule;
 use App\Http\Requests\StoreScheduleRequest;
 use App\Http\Requests\UpdateScheduleRequest;
 use App\Models\Movie;
+use App\Models\Reservation;
 use App\Models\Theatre;
 
 class ScheduleController extends Controller
@@ -49,9 +50,21 @@ class ScheduleController extends Controller
      */
     public function store(StoreScheduleRequest $request)
     {
-        Schedule::create($request->validated());
+        $hall = Hall::findOrFail($request->hall_id);
 
-        return redirect(route('schedule.index'));
+        $noOfSeats = $hall->no_of_seats;
+
+        $schedule = Schedule::create($request->validated());
+
+        for($i = 1; $i <= $noOfSeats; $i++){
+            Reservation::create([
+                'seat_number' => $i,
+                'schedule_id' => $schedule->id,
+                'status' => 'Available'
+            ]);
+        }
+
+        return redirect(route('schedule.index'))->withSuccess('Schedule created successfully');
     }
 
     /**
@@ -95,7 +108,7 @@ class ScheduleController extends Controller
 
         $schedule->update($request->validated());
 
-        return redirect(route('schedule.index'));
+        return redirect(route('schedule.index'))->withSuccess('Schedule updated successfully');
     }
 
     /**
@@ -104,12 +117,14 @@ class ScheduleController extends Controller
      * @param  \App\Models\Schedule  $schedule
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
-    public function destroy(Schedule $schedule)
+    public function destroy(Schedule $schedule, Reservation $reservation)
     {
         $this->authorize('delete_schedule');
-        
+
+        $reservation->whereScheduleId($schedule->id)->delete();
+
         $schedule->delete();
 
-        return redirect(route('schedule.index'));
+        return redirect(route('schedule.index'))->withSuccess('Theatre deleted successfully');
     }
 }

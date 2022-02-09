@@ -110,6 +110,7 @@
                             <li>
                                 <div class="movie-name">
                                     {{$schedule->showdate->format('l')}} {{$schedule->showtime}}
+                                    <a href="{{url('ticket/seat_plan/'. $schedule->id)}}" class="custom-button back-button">Book Ticket</a>
                                 </div>
                                 <div class="movie-schedule">
                                     <div class="">
@@ -118,7 +119,7 @@
                                         Hall: {{$schedule->hall->name}}
                                         <br>
                                         <br>
-                                        Ticket Price: Tsh {{number_format($schedule->price)}}
+                                        Ticket Price: TZS {{number_format($schedule->price)}}
                                     </div>
                             </li>
                         @endforeach

@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="{{asset('frontend/css/nice-select.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/css/jquery.animatedheadline.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/css/main.css')}}">
+    {{-- @stack('css') --}}
 
     <link rel="shortcut icon" href="{{asset('assets/media/favicons/favicon.png')}}" type="image/x-icon">
 

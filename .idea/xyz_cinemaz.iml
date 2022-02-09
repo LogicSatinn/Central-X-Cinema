@@ -133,6 +133,11 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/spatie/image" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/maennchen/zipstream-php" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/league/glide" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/spatie/laravel-permission" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/openpesa/pesa" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/openpesa/laravel-pesa" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/tomsgad/laravel-beem" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/realrashid/sweet-alert" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

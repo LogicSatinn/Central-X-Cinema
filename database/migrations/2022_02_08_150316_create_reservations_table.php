@@ -15,6 +15,10 @@ class CreateReservationsTable extends Migration
     {
         Schema::create('reservations', function (Blueprint $table) {
             $table->id();
+            $table->integer('seat_number');
+            $table->foreignId('schedule_id')->constrained();
+            $table->string('status'); // Booked, Available, Reserved, Pending
+            $table->string('reference_code')->nullable();
             $table->timestamps();
         });
     }
