@@ -73,7 +73,7 @@
                                         Hall: {{$schedule->hall->name}}
                                         <br>
                                         <br>
-                                        Ticket Price: Tsh {{number_format($schedule->price)}}
+                                        Ticket Price: TZS {{number_format($schedule->price)}}/=
                                     </div>
                                 </div>
                             </li>

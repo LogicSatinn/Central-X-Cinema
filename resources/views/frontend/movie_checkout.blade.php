@@ -110,13 +110,13 @@
                         </ul>
                         <ul>
                             <li>
-                                <span class="info"><span>price</span><span>Tsh {{(number_format($checkout_ticket_price))}}/=</span></span>
+                                <span class="info"><span>price</span><span>TZS {{(number_format($checkout_ticket_price))}}/=</span></span>
                                 <span class="info"><span>vat</span><span>15%</span></span>
                             </li>
                         </ul>
                     </div>
                     <div class="proceed-area  text-center">
-                        <h6 class="subtitle"><span>Amount Payable</span><span>Tsh {{(number_format($checkout_ticket_price))}}/=</span>
+                        <h6 class="subtitle"><span>Amount Payable</span><span>TZS {{(number_format($checkout_ticket_price))}}/=</span>
                         </h6>
                     </div>
                 </div>

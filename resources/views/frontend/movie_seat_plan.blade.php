@@ -80,7 +80,7 @@
                 <div class="proceed-to-book">
                     <div class="book-item">
                         <span>ticket price per seat</span>
-                        <h3 class="title">Tsh {{ number_format($schedule->price) }}/=</h3>
+                        <h3 class="title">TZS {{ number_format($schedule->price) }}/=</h3>
                     </div>
                     <div class="book-item">
                         <button type="submit" class="custom-button">proceed</button>
