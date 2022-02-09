@@ -53,7 +53,6 @@ class HomeController extends Controller
             }
         }
 
-
             $movies = $movie->paginate(6);
 
             return view('frontend.index', compact('movies'), [

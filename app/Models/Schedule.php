@@ -29,8 +29,8 @@ class Schedule extends Model
         return $this->belongsTo(Hall::class);
     }
 
-    // public function getShowTimeAttribute($value)
-    // {
-    //     return Carbon::parse($value)->hour . ':' . Carbon::parse($value)->minute;
-    // }
+    public function reservation()
+    {
+        return $this->hasMany(Reservation::class);
+    }
 }

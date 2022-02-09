@@ -26,6 +26,8 @@
 
 @include('frontend.inc.footer')
 
+@include('sweetalert::alert')
+
 @include('frontend.inc.scripts')
 </body>
 

@@ -7,6 +7,9 @@ Route::get('/movie-details/{movie}', 'HomeController@movieDetails')->name('movie
 Route::post('/query', 'HomeController@movieQuery');
 Route::get('/timetable', 'HomeController@schedule');
 Route::post('/scheduleQuery', 'HomeController@scheduleQuery');
+Route::get('/ticket/seat_plan/{schedule}', 'ReservationController@seatPlan');
+Route::post('/ticket/checkout/{schedule}', 'ReservationController@checkout');
+Route::post('/ticket/contact_details/{schedule}', 'ReservationController@finalizeReservation');
 
 Route::middleware(['auth'])->group(function () {
     Route::post('/movies/{id}/linkGenre', 'MovieController@linkGenre');

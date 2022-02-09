@@ -7,6 +7,7 @@ use App\Models\Schedule;
 use App\Http\Requests\StoreScheduleRequest;
 use App\Http\Requests\UpdateScheduleRequest;
 use App\Models\Movie;
+use App\Models\Reservation;
 use App\Models\Theatre;
 
 class ScheduleController extends Controller
@@ -49,7 +50,19 @@ class ScheduleController extends Controller
      */
     public function store(StoreScheduleRequest $request)
     {
-        Schedule::create($request->validated());
+        $hall = Hall::findOrFail($request->hall_id);
+
+        $noOfSeats = $hall->no_of_seats;
+
+        $schedule = Schedule::create($request->validated());
+
+        for($i = 1; $i <= $noOfSeats; $i++){
+            Reservation::create([
+                'seat_number' => $i,
+                'schedule_id' => $schedule->id,
+                'status' => 'Available'
+            ]);
+        }
 
         return redirect(route('schedule.index'));
     }
@@ -107,7 +120,7 @@ class ScheduleController extends Controller
     public function destroy(Schedule $schedule)
     {
         $this->authorize('delete_schedule');
-        
+
         $schedule->delete();
 
         return redirect(route('schedule.index'));
