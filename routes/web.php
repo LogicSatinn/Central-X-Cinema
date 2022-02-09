@@ -2,14 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'HomeController@index')->name('web');
 Route::get('/movie-details/{movie}', 'HomeController@movieDetails')->name('movieDetails');
 Route::post('/query', 'HomeController@movieQuery');
 Route::get('/timetable', 'HomeController@schedule');
 Route::post('/scheduleQuery', 'HomeController@scheduleQuery');
+
 Route::get('/ticket/seat_plan/{schedule}', 'ReservationController@seatPlan');
-Route::post('/ticket/checkout/{schedule}', 'ReservationController@checkout');
-Route::post('/ticket/contact_details/{schedule}', 'ReservationController@finalizeReservation');
+Route::match(['post', 'get'], '/ticket/checkout/{schedule}', 'ReservationController@checkout');
 
 Route::middleware(['auth'])->group(function () {
     Route::post('/movies/{id}/linkGenre', 'MovieController@linkGenre');

@@ -22,6 +22,8 @@
 <!-- ==========Overlay========== -->
 @include('frontend.inc.header')
 
+@yield('content')
+
 @if (session('success'))
     <div class="alert alert-success">
         {{ session('success_message') }}
@@ -33,8 +35,6 @@
         {{ session('error_message') }}
     </div>
 @endif
-
-@yield('content')
 
 @include('frontend.inc.footer')
 

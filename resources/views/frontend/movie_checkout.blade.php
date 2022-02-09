@@ -8,7 +8,7 @@
 
     <!-- ==========Banner-Section========== -->
     <section class="details-banner hero-area bg_img seat-plan-banner"
-             data-background="{{ asset('frontend/images/banner/banner04.jpg') }}">
+             data-background="{{ asset('frontend/images/banner/banner14.jpg') }}">
         <div class="container">
             <div class="details-banner-wrapper">
                 <div class="details-banner-content style-two">
@@ -50,7 +50,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
-                    {{-- <div class="checkout-widget d-flex flex-wrap align-items-center justify-cotent-between">
+                     <div class="checkout-widget d-flex flex-wrap align-items-center justify-cotent-between">
                         <div class="title-area">
                             <h5 class="title">Already a Boleto Member?</h5>
                             <p>Sign in to earn points and make booking easier!</p>
@@ -58,11 +58,11 @@
                         <a href="#0" class="sign-in-area">
                             <i class="fas fa-user"></i><span>Sign in</span>
                         </a>
-                    </div> --}}
+                    </div>
                     <div class="checkout-widget checkout-card mb-0">
                         <h5 class="title mb-3">Share your Contact Details </h5>
                         <p>If you would like to pay at the theatre, then please leave use your contact details.</p>
-                        <form class="checkout-contact-form" action="{{url('/ticket/contact_details/'. $schedule->id)}}" method="POST">
+                        <form action="{{url('/momo/'.$schedule->id)}}" method="POST">
                             @csrf
                             <div class="form-group">
                                 <input type="text" name="name" placeholder="Full Name">
@@ -81,11 +81,11 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <input type="submit" class="custom-button" value="make a reservation">
+                                <button type="submit" class="custom-button">Make a Reservation</button>
                             </div>
                         </form>
                         <p class="notice">
-                            By Clicking "Make Payment" you agree to the <a href="#0">terms and conditions</a>
+                            By Clicking "Make a Reservation" you agree to the <a href="#0">terms and conditions</a>
                         </p>
                     </div>
                 </div>

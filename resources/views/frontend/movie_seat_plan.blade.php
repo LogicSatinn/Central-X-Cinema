@@ -8,7 +8,7 @@
 
     <!-- ==========Banner-Section========== -->
     <section class="details-banner hero-area bg_img seat-plan-banner"
-        data-background="{{ asset('frontend/images/banner/banner04.jpg') }}">
+             data-background="{{ asset('frontend/images/banner/banner14.jpg') }}">
         <div class="container">
             <div class="details-banner-wrapper">
                 <div class="details-banner-content style-two">
@@ -63,9 +63,20 @@
                                         <ul style="float: left;">
                                             <li class="single-seat">
                                                 <a href="#" data-toggle="modal" data-target="#bookSeat">
-                                                    <img src="{{ asset('frontend/images/movie/seat01-free.png') }}"
-                                                    alt="seat">
-                                                <span class="sit-num">{{ $seats->seat_number }}</span>
+                                                    @if($seats->status === 'Pending')
+                                                        <img src="{{ asset('frontend/images/movie/seat01.png') }}"
+                                                             alt="seat">
+                                                        <span class="sit-num">{{ $seats->seat_number }}</span>
+                                                    @elseif ($seats->status === 'Booked')
+                                                        <img
+                                                            src="{{ asset('frontend/images/movie/seat01-booked.png') }}"
+                                                            alt="seat">
+                                                        <span class="sit-num">{{ $seats->seat_number }}</span>
+                                                    @else
+                                                        <img src="{{ asset('frontend/images/movie/seat01-free.png') }}"
+                                                             alt="seat">
+                                                        <span class="sit-num">{{ $seats->seat_number }}</span>
+                                                    @endif
                                                 </a>
                                             </li>
                                         </ul>
@@ -76,7 +87,8 @@
                     </ul>
                 </div>
             </div>
-            <div class="proceed-book bg_img" data-background="{{ asset('frontend/images/movie/movie-bg') }}-proceed.jpg">
+            <div class="proceed-book bg_img"
+                 data-background="{{ asset('frontend/images/movie/movie-bg') }}-proceed.jpg">
                 <div class="proceed-to-book">
                     <div class="book-item">
                         <span>ticket price per seat</span>
@@ -95,16 +107,29 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-body">
-                    {!! Form::open(['url' => ['/ticket/checkout/'. $schedule->id]]) !!}
-                    @csrf
-                    <div class="form-group">
-                        <label class="col-form-label" style="color: black;">Seat Number:</label>
-                        <select class="form-control" name="seat[]" multiple data-live-search="true">
-                            @foreach ($reservations as $seats)
-                                <option value="{{ $seats->seat_number }}">{{ $seats->seat_number }}</option>
-                            @endforeach
-                        </select>
-                    </div>
+                    <form action="{{url('/ticket/checkout/'. $schedule->id)}}" method="POST">
+                        @csrf
+                        <div class="form-group">
+                            <label class="col-form-label" style="color: black;">Full Name:</label>
+                            <input class="form-control" type="text" name="name" placeholder="Full Name">
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label" style="color: black;">Email:</label>
+                            <input class="form-control" type="text" name="email" placeholder="Enter your Mail">
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label" style="color: black;">Phone Number:</label>
+                            <input class="form-control" type="text" name="phone_number"
+                                   placeholder="Use this format: 255695625656 ">
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label" style="color: black;">Seat Number:</label>
+                            <select class="form-control" name="seat[]" multiple data-live-search="true">
+                                @foreach ($reservations as $seats)
+                                    <option value="{{ $seats->seat_number }}">{{ $seats->seat_number }}</option>
+                                @endforeach
+                            </select>
+                        </div>
 
                 </div>
                 <div class="modal-footer">
