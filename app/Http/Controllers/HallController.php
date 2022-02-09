@@ -47,7 +47,7 @@ class HallController extends Controller
     {
         Hall::create($request->validated());
 
-        return redirect(route('hall.index'))->withSuccess('Hall added successfully.');
+        return redirect(route('hall.index'))->withToastSuccess('Hall added successfully.');
     }
 
     /**
@@ -89,7 +89,7 @@ class HallController extends Controller
 
         $hall->update($request->validated());
 
-        return redirect(route('hall.index'))->withSuccess('Hall updated successfully');
+        return redirect(route('hall.index'))->withToastSuccess('Hall updated successfully');
     }
 
     /**
@@ -104,6 +104,6 @@ class HallController extends Controller
 
         $hall->delete();
 
-        return redirect(route('hall.index'))->withSuccess('Hall deleted successfully');
+        return redirect(route('hall.index'))->withToastSuccess('Hall deleted successfully');
     }
 }

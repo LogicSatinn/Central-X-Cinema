@@ -32,7 +32,7 @@ class ReservationController extends Controller
 
         foreach ($request['seat'] as $key => $value) {
             if (Reservation::whereScheduleId($schedule->id)->whereSeatNumber($value)->whereStatus('Booked')->exists()) {
-                return back()->withInput()->withSuccess('This seat is already booked');
+                return back()->withInput()->withToastSuccess('This seat is already booked');
             }
 
             Reservation::whereScheduleId($schedule->id)->whereSeatNumber($value)->update([
@@ -42,11 +42,11 @@ class ReservationController extends Controller
             $reservations = Reservation::whereScheduleId($schedule->id)->whereSeatNumber($value)->first();
 
             Notification::route('mail', $request['email'])->notify(new MailReservationConfirmation($reservations, $checkout_ticket_price, $value, $schedule));
-            Notification::route('beem', $request['phone_number'])->notify(new BeemReservationConfirmation());
+           Notification::route('beem', $request['phone_number'])->notify(new BeemReservationConfirmation());
         }
 
 
-        return redirect()->route('web')->withSuccess('Your Seat(s) is booked.');
+        return redirect()->route('web')->withToastSuccess('Your Seat(s) is booked.');
     }
 
 }

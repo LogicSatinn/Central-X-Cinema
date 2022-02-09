@@ -64,7 +64,7 @@ class ScheduleController extends Controller
             ]);
         }
 
-        return redirect(route('schedule.index'))->withSuccess('Schedule created successfully');
+        return redirect(route('schedule.index'))->withToastSuccess('Schedule created successfully');
     }
 
     /**
@@ -108,7 +108,7 @@ class ScheduleController extends Controller
 
         $schedule->update($request->validated());
 
-        return redirect(route('schedule.index'))->withSuccess('Schedule updated successfully');
+        return redirect(route('schedule.index'))->withToastSuccess('Schedule updated successfully');
     }
 
     /**
@@ -125,6 +125,6 @@ class ScheduleController extends Controller
 
         $schedule->delete();
 
-        return redirect(route('schedule.index'))->withSuccess('Theatre deleted successfully');
+        return redirect(route('schedule.index'))->withToastSuccess('Theatre deleted successfully');
     }
 }

@@ -47,7 +47,7 @@ class TheatreController extends Controller
     {
         Theatre::create($request->validated());
 
-        return redirect(route('theatre.index'))->withSuccess('Theatre added successfully');
+        return redirect(route('theatre.index'))->withToastSuccess('Theatre added successfully');
     }
 
     /**
@@ -91,7 +91,7 @@ class TheatreController extends Controller
 
         $theatre->update($request->validated());
 
-        return redirect(route('theatre.index'))->withSuccess('Theatre added successfully');
+        return redirect(route('theatre.index'))->withToastSuccess('Theatre added successfully');
     }
 
     /**
@@ -106,6 +106,6 @@ class TheatreController extends Controller
 
         $theatre->delete();
 
-        return redirect(route('theatre.index'))->withSuccess('Theatre added successfully');
+        return redirect(route('theatre.index'))->withToastSuccess('Theatre added successfully');
     }
 }
