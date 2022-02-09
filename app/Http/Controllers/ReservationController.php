@@ -37,7 +37,7 @@ class ReservationController extends Controller
 
             Reservation::whereScheduleId($schedule->id)->whereSeatNumber($value)->update([
                 'status' => 'Booked',
-                'reference_code' => 'CX' . strtoupper(substr((str_shuffle($permitted_chars)), 0, 4))
+                'reference_code' => strtoupper(substr((str_shuffle($permitted_chars)), 0, 4))
             ]);
             $reservations = Reservation::whereScheduleId($schedule->id)->whereSeatNumber($value)->first();
 
