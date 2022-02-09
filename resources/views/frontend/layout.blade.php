@@ -22,6 +22,18 @@
 <!-- ==========Overlay========== -->
 @include('frontend.inc.header')
 
+@if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success_message') }}
+    </div>
+@endif
+
+@if (session('error'))
+    <div class="alert alert-error">
+        {{ session('error_message') }}
+    </div>
+@endif
+
 @yield('content')
 
 @include('frontend.inc.footer')

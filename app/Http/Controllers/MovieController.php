@@ -47,7 +47,7 @@ class MovieController extends Controller
     {
         Movie::create($request->validated());
 
-        return redirect(route('movies.index'));
+        return redirect(route('movies.index'))->withSuccess('Movie stored successfully');
     }
 
     /**
@@ -128,7 +128,7 @@ class MovieController extends Controller
 
         $movie->update($request->except(['_method', '_token']));
 
-        return redirect(route('movies.index'));
+        return redirect(route('movies.index'))->withSuccess('Movie updated successfully');
     }
 
     /**
@@ -143,6 +143,6 @@ class MovieController extends Controller
 
         $movie->delete();
 
-        return redirect(route('movies.index'));
+        return redirect(route('movies.index'))->withSuccess('Movie deleted successfully');
     }
 }

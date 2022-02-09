@@ -14,6 +14,12 @@
             </div>
         @endif
 
+        @if (session('error'))
+            <div class="alert alert-error">
+                {{ session('error_message') }}
+            </div>
+        @endif
+
         @include('layouts.inc.hero')
 
         @yield('content')

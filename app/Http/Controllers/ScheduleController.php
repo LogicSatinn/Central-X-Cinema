@@ -64,7 +64,7 @@ class ScheduleController extends Controller
             ]);
         }
 
-        return redirect(route('schedule.index'));
+        return redirect(route('schedule.index'))->withSuccess('Schedule created successfully');
     }
 
     /**
@@ -108,7 +108,7 @@ class ScheduleController extends Controller
 
         $schedule->update($request->validated());
 
-        return redirect(route('schedule.index'));
+        return redirect(route('schedule.index'))->withSuccess('Schedule updated successfully');
     }
 
     /**
@@ -117,12 +117,14 @@ class ScheduleController extends Controller
      * @param  \App\Models\Schedule  $schedule
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
-    public function destroy(Schedule $schedule)
+    public function destroy(Schedule $schedule, Reservation $reservation)
     {
         $this->authorize('delete_schedule');
 
+        $reservation->whereScheduleId($schedule->id)->delete();
+
         $schedule->delete();
 
-        return redirect(route('schedule.index'));
+        return redirect(route('schedule.index'))->withSuccess('Theatre deleted successfully');
     }
 }
