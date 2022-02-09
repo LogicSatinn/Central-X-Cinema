@@ -3,84 +3,50 @@
 namespace App\Http\Controllers;
 
 use App\Models\Reservation;
-use App\Http\Requests\StoreReservationRequest;
-use App\Http\Requests\UpdateReservationRequest;
+use App\Notifications\BeemReservationConfirmation;
+use App\Notifications\MailReservationConfirmation;
+use Illuminate\Http\Request;
+use App\Models\Schedule;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Notification;
 
 class ReservationController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+
+    public function seatPlan(Schedule $schedule)
     {
-        //
+        $reservations = $schedule->reservation()->get();
+        return view('frontend.movie_seat_plan', compact('reservations', 'schedule'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+
+    public function checkout(Request $request, Schedule $schedule)
     {
-        //
+        $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyz';
+
+        $seats = Arr::flatten($request['seat']);
+
+        $n_seats = count($seats);
+
+        $checkout_ticket_price = $schedule->price;
+
+        foreach ($request['seat'] as $key => $value) {
+            if (Reservation::whereScheduleId($schedule->id)->whereSeatNumber($value)->whereStatus('Booked')->exists()) {
+                return back()->withInput()->withSuccess('This seat is already booked');
+            }
+
+            Reservation::whereScheduleId($schedule->id)->whereSeatNumber($value)->update([
+                'status' => 'Booked',
+                'reference_code' => 'CX' . strtoupper(substr((str_shuffle($permitted_chars)), 0, 4))
+            ]);
+            $reservations = Reservation::whereScheduleId($schedule->id)->whereSeatNumber($value)->first();
+
+            Notification::route('mail', $request['email'])->notify(new MailReservationConfirmation($reservations, $checkout_ticket_price, $value, $schedule));
+            Notification::route('beem', $request['phone_number'])->notify(new BeemReservationConfirmation($reservations));
+        }
+
+
+        return redirect()->route('web')->withSuccess('Your Seat(s) is booked.');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreReservationRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreReservationRequest $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Reservation  $reservation
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Reservation $reservation)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Reservation  $reservation
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Reservation $reservation)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateReservationRequest  $request
-     * @param  \App\Models\Reservation  $reservation
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateReservationRequest $request, Reservation $reservation)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Reservation  $reservation
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Reservation $reservation)
-    {
-        //
-    }
 }

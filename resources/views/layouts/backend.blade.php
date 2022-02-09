@@ -8,6 +8,17 @@
 @include('layouts.inc.header')
 <!-- Main Container -->
     <main id="main-container">
+        @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success_message') }}
+            </div>
+        @endif
+
+        @if (session('error'))
+            <div class="alert alert-error">
+                {{ session('error_message') }}
+            </div>
+        @endif
 
         @include('layouts.inc.hero')
 
@@ -29,6 +40,7 @@
 </div>
 <!-- END Page Container -->
 
+@include('sweetalert::alert')
 
 @include('layouts.inc.scripts')
 </body>

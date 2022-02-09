@@ -12,7 +12,7 @@ class TheatreController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function index()
     {
@@ -47,7 +47,7 @@ class TheatreController extends Controller
     {
         Theatre::create($request->validated());
 
-        return redirect(route('theatre.index'));
+        return redirect(route('theatre.index'))->withSuccess('Theatre added successfully');
     }
 
     /**
@@ -91,7 +91,7 @@ class TheatreController extends Controller
 
         $theatre->update($request->validated());
 
-        return redirect(route('theatre.index'));
+        return redirect(route('theatre.index'))->withSuccess('Theatre added successfully');
     }
 
     /**
@@ -103,9 +103,9 @@ class TheatreController extends Controller
     public function destroy(Theatre $theatre)
     {
         $this->authorize('delete_theatre');
-        
+
         $theatre->delete();
 
-        return redirect(route('theatre.index'));
+        return redirect(route('theatre.index'))->withSuccess('Theatre added successfully');
     }
 }
