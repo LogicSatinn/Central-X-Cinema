@@ -1,6 +1,6 @@
 
     <li class="nav-main-item">
-        <a class="nav-main-link" href="{{url('/')}}">
+        <a class="nav-main-link" href="{{url('/dashboard')}}">
             <i class="nav-main-link-icon far fa-compass"></i>
             <span class="nav-main-link-name">Dashboard</span>
         </a>

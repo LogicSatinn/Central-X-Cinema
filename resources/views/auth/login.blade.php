@@ -12,7 +12,7 @@
     <!-- Main Container -->
     <main id="main-container">
         <!-- Page Content -->
-        <div class="bg-image" style="background-image: url('{{asset('assets/media/photos/photo22@2x.jpg')}}');">
+        <div class="bg-image" style="background-image: url('{{asset('assets/media/photos/photo31@2x.jpg')}}');">
             <div class="row no-gutters bg-primary-op">
                 <!-- Main Section -->
                 <div class="hero-static col-md-6 d-flex align-items-center bg-white">
