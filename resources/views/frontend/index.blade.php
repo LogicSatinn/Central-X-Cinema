@@ -13,7 +13,7 @@
     <section class="movie-section padding-top padding-bottom">
         <div class="container">
             <div class="row flex-wrap-reverse justify-content-center">
-                
+
                 <div class="col-lg-9 mb-50 mb-lg-0">
                     <div class="filter-tab tab">
                         <div class="filter-area">
@@ -53,7 +53,7 @@
                                                                 @else
                                                                     <img
                                                                         src="{{asset($movie->getFirstMediaUrl('pictures'))}}"
-                                                                        alt="{{$movie->name}}" style="width: 255px; height: 357px;">
+                                                                        alt="{{$movie->name}}" >
                                                                 @endif
                                                             </a>
                                                         </div>
