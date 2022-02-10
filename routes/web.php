@@ -23,9 +23,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('hall', 'HallController');
     Route::resource('schedule', 'ScheduleController');
 
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', 'DashboardController')->name('dashboard');
 });
 
 require __DIR__.'/auth.php';
