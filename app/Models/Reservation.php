@@ -20,9 +20,4 @@ class Reservation extends Model
         return $this->belongsTo(Schedule::class);
     }
 
-
-    public function routeNotificationForBeem()
-    {
-        return [$this->phone_number];
-    }
 }

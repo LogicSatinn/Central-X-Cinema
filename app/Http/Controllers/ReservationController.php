@@ -26,8 +26,6 @@ class ReservationController extends Controller
 
         $seats = Arr::flatten($request['seat']);
 
-        $n_seats = count($seats);
-
         $checkout_ticket_price = $schedule->price;
 
         foreach ($request['seat'] as $key => $value) {
@@ -44,7 +42,7 @@ class ReservationController extends Controller
             Notification::route('mail', $request['email'])->notify(new MailReservationConfirmation($reservations, $checkout_ticket_price, $value, $schedule));
         }
 
-        Notification::route('beem', $request['phone_number'])->notify(new BeemReservationConfirmation());
+//        Notification::route('beem', $request['phone_number'])->notify(new BeemReservationConfirmation());
 
         return redirect()->route('web')->withToastSuccess('Your Seat(s) is booked.');
     }
